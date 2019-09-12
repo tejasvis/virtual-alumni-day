@@ -1,0 +1,27 @@
+{#
+    # Article Body include template
+    # -----------------------------
+    #
+    # This template is used to output HTML for an "homepage selected content Body" Matrix field.
+    #
+    # An `entry` variable is expected to be defined.
+   -#}
+
+   {%macro getPosition(block)%}
+    {%- spaceless%}
+        {%set positionedTypes=['contenttitle','contentsubtitle','contentdescription']%}
+
+        {{block.type.handle in positionedTypes and block.position ? block.position : 'center'}}
+    {%endspaceless%}
+
+   {%endmacro%}
+<!-- {{entry.title}}
+   {%set blocks=entry.homepagecellcontent%}
+   {% set nextType = null %}
+
+   {%for block in blocks%}
+        {% switch block.type %}
+                {% case 'gridcellcontent' %}
+                    {{block.gridcelltitle}}
+        {% endswitch %}
+   {%endfor%} -->

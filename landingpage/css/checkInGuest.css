@@ -1,0 +1,45 @@
+body
+{
+    background-color: dimgray;
+    font-family: Helvetica, Arial, sans-serif;
+    height: 90vh;
+}
+
+.container
+{
+    background-color: white;
+    width: 95vw;
+    max-width: 2000px;
+    /*height: 90vh;*/
+    font-size: 21px;
+    font-weight: normal;
+}
+
+.SMALLER_TEXT
+{
+    font-size: 14px;
+    line-height: 12pt;
+}
+
+.HEADERS
+{
+    background-color: lightgray;;
+    height: auto;
+}
+
+.CONTENT
+{
+    background-color: #EBEBEB;
+}
+
+.STATS_OR_VISITORS
+{
+    height: 600px;
+}
+
+.BOARDS
+{
+    background-color: #EBEBEB;
+}
+
+

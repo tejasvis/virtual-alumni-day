@@ -1,0 +1,115 @@
+<div class="centennial-container ">
+  <div class="centennial-countdown">
+    <div class="countdown">
+      <div class="bloc-time days">
+        <span class="count-title h3">Days</span>
+        <div class="figure-list" data-init-value="0">
+          <div class="figure days days-1">
+            <span class="top">0</span>
+            <span class="top-back">
+            <span>0</span>
+            </span>
+            <span class="bottom">0</span>
+            <span class="bottom-back">
+            <span>0</span>
+            </span>
+          </div>
+          <div class="figure days days-2">
+            <span class="top">0</span>
+            <span class="top-back">
+            <span>0</span>
+            </span>
+            <span class="bottom">0</span>
+            <span class="bottom-back">
+            <span>0</span>
+            </span>
+          </div>
+          <div class="figure days days-3">
+            <span class="top">0</span>
+            <span class="top-back">
+            <span>0</span>
+            </span>
+            <span class="bottom">0</span>
+            <span class="bottom-back">
+            <span>0</span>
+            </span>
+          </div>
+        </div>
+      </div>{#<!-- DAYS bloc-time DIV-->#}
+
+      <div class="bloc-time hours">
+        <span class="count-title h3">Hours</span>
+        <div class="figure-list" data-init-value="0">
+          <div class="figure hours hours-1">
+            <span class="top">0</span>
+            <span class="top-back">
+            <span>0</span>
+            </span>
+            <span class="bottom">0</span>
+            <span class="bottom-back">
+            <span>0</span>
+            </span>
+          </div>
+
+          <div class="figure hours hours-2">
+            <span class="top">0</span>
+            <span class="top-back">
+            <span>0</span>
+            </span>
+            <span class="bottom">0</span>
+            <span class="bottom-back">
+            <span>0</span>
+            </span>
+          </div>
+        </div>
+      </div> {#<!-- Hours bloc-time DIV-->#}
+
+      <div class="bloc-time min">
+        <span class="count-title h3">Minutes</span>
+        <div class="figure-list" data-init-value="0">
+          <div class="figure min min-1">
+            <span class="top">0</span>
+            <span class="top-back">
+            <span>0</span>
+            </span>
+            <span class="bottom">0</span>
+            <span class="bottom-back">
+            <span>0</span>
+            </span>
+          </div>
+
+          <div class="figure min min-2">
+            <span class="top">0</span>
+            <span class="top-back">
+            <span>0</span>
+            </span>
+            <span class="bottom">0</span>
+            <span class="bottom-back">
+            <span>0</span>
+            </span>
+          </div>
+        </div>
+      </div> {#<!-- Mins bloc-time DIV-->#}
+    </div>{# <!--END OF Countdown DIV-->#}
+
+    {#<!-- </div>End of row Div in Count down Clock -->#}
+    <div class="calendarEventDescription">
+      {%for block in entry.articleBody.all()%}
+        {% switch block.type %}
+          {%case 'contentdescription'%}
+          <h2> {{block.contentdescription}}</h2>
+          {%case 'contentdisclaimer'%}
+          <p class="calendarEventDisclaimer"> {{block.disclaimer}}</p>
+        {%endswitch%}
+      {%endfor%}
+
+      <div class="add-to-calendar">
+        <a class = "btn-outline-primary btn btn-lg " href = "{{siteUrl}}/UCLA_Centennial_Celebrations_2019.ics" role = "button">
+        Add to Calendar
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+        {#<!--END Of Calendar event -->#}

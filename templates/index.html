@@ -1,0 +1,788 @@
+{#
+    # Homepage template
+    # -----------------
+    #
+    # This template gets loaded whenever the site's homepage is requested, because
+    # the "Homepage" single-entry section's Template setting is set to "index".
+    #
+    # An `entry` variable will be automatically passed to this template, which will
+    # be set to the Homepage entry.
+   -#}
+{% extends "_layouts/site.html" %}
+
+{%block body%}
+
+    <div class="row-align no-gutters box removeMargin">
+
+{%for homepageEntry in craft.entries.section('homepage').orderBy('postdate asc').all()%}
+
+ {#<!--representing first cell of row1-->#}
+    {%set gridCellIcon=homepageEntry.featuredimage.one()%}
+    {%set gridCellIconText=homepageEntry.gridcelltitle%}
+    {%set gridCellIconSubTitle=homepageEntry.gridcellsubtitle%}
+    {%set gridCellIconDescription=homepageEntry.gridcelldescription%}
+
+       {%if loop.index==1%}
+
+       <div class="col-xl-6 col-lg-12 col-md-12  my-2 gridCell  text-left ">
+
+
+            <a href="{{homepageEntry.url}}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+                {%if gridCellIcon%}
+
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+
+                {%endif%}
+                {%if homepageEntry.contenttitletoggle%}
+                <span id="row1Cell1" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                      {%endif%}
+
+                      {%if homepageEntry.contentsubtitletoggle%}
+                <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                      {%endif%}
+
+                      {%if homepageEntry.contentdescriptiontoggle%}
+                <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                      {%endif%}
+                </span>
+
+
+            </a>
+
+
+        </div>
+
+
+        {%elseif loop.index==2%}
+          {%block scripts%}
+          <script src="{{siteUrl}}js/moment.min.js" type="text/javascript"></script>
+          <script src="{{siteUrl}}js/moment-timezone-with-data.min.js" type="text/javascript"></script>
+          <script src="{{siteUrl}}js/qa/schedule.js" type="text/javascript"></script>
+          <script src="{{siteUrl}}js/qa/cell.js" type="text/javascript"></script>
+          {%endblock%}
+
+             <div class="col-xl-3 col-lg-4  col-md-6 my-2  gridCell   text-left live-qa-cell order-xl-first">
+               <div class="gradient-container">
+                 <a href="{{homepageEntry.url}}" alt="Cell1AnchorTags" target="_parent" class="">
+                   <span class="live-qa-cell-title">{{gridCellIconText}}</span>
+                   <span class="live-qa-cell-content">
+                     <span class="live-qa-cell-speaker" id="live-qa-cell-speaker"></span>
+                     <span class="live-qa-cell-event" id="live-qa-cell-event"></span>
+                     <span class="live-qa-cell-timing" id="live-qa-cell-timing"></span>
+                   </span>
+                   <span class="live-qa-cell-link">{{gridCellIconSubTitle}}</span>
+                 </a>
+               </div>
+            </div>
+
+        {%elseif loop.index==3%}
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2   gridCell  text-left">
+
+                <a href="{{homepageEntry.url}}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+                          {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+
+                        {%if homepageEntry.contenttitletoggle%}
+                             <span id="row1Cell3" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                        {%endif%}
+
+                        {%if homepageEntry.contentsubtitletoggle%}
+                            <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        {%endif%}
+
+                        {%if homepageEntry.contentdescriptiontoggle%}
+                            <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                        {%endif%}
+
+                        </span>
+                </a>
+
+            </div>
+
+
+        {%elseif loop.index==4%}
+
+            <div class="col-xl-3 col-lg-4 col-md-6  my-2  gridCell text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                        <span id="row2Cell1" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                    {%endif%}
+
+                    {%if homepageEntry.contentsubtitletoggle%}
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    {%endif%}
+
+                    {%if homepageEntry.contentdescriptiontoggle%}
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                    {%endif%}
+                        </span>
+                </a>
+            </div>
+
+        {%elseif loop.index==5%}
+
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                        <span id="row2Cell2" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                    {%endif%}
+
+                    {%if homepageEntry.contentsubtitletoggle%}
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    {%endif%}
+
+                    {%if homepageEntry.contentdescriptiontoggle%}
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                    {%endif%}
+                    </span>
+                </a>
+            </div>
+
+        {%elseif loop.index==6%}
+
+            <div class="col-xl-3 col-lg-4 col-md-6  my-2  gridCell text-left ">
+                    <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                          {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                        {%if homepageEntry.contenttitletoggle%}
+                        <span id="row2Cell3" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                    {%endif%}
+
+                    {%if homepageEntry.contentsubtitletoggle%}
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    {%endif%}
+
+                    {%if homepageEntry.contentdescriptiontoggle%}
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                    {%endif%}
+                    </span>
+                    </a>
+            </div>
+
+        {%elseif loop.index==7%}
+
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2 gridCell text-left ">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row2Cell4" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+        {%elseif loop.index==8%}
+
+            <div class="col-xl-6 col-lg-8 col-md-12 my-2  gridCell  text-left">
+               {# <!-- Cell(Entry) title from the craft CP -->#}
+                <a href="{{homepageEntry.url}}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row3Cell1" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+        {%elseif loop.index==9%}
+
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2 gridCell text-left ">
+                <a href="{{homepageEntry.url}}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink" >
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row3Cell2" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+        {%elseif loop.index==10%}
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2 gridCell  text-left">
+                <a href="{{homepageEntry.url}}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row3Cell3" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+        {%elseif loop.index==11%}
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left ">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row4Cell1" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+        {%elseif loop.index==12%}
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2 gridCell text-left ">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row4Cell2" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+        {%elseif loop.index==13%}
+        <div class="col-xl-6 col-lg-8 col-md-12 my-2  gridCell  text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row4Cell3" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+        </div>
+
+
+        {%elseif loop.index==14%}
+        <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left ">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                   {%if homepageEntry.contenttitletoggle%}
+                   <span id="row5Cell1" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+               {%endif%}
+
+               {%if homepageEntry.contentsubtitletoggle%}
+                   <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+               {%endif%}
+
+               {%if homepageEntry.contentdescriptiontoggle%}
+                   <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+               {%endif%}
+               </span>
+                </a>
+            </div>
+
+
+        {%elseif loop.index==15%}
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                     {%if homepageEntry.contenttitletoggle%}
+                        <span id="row5Cell2" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                    {%endif%}
+
+                    {%if homepageEntry.contentsubtitletoggle%}
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    {%endif%}
+
+                    {%if homepageEntry.contentdescriptiontoggle%}
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                    {%endif%}
+                    </span>
+                </a>
+            </div>
+
+
+        {%elseif loop.index==16%}
+
+        <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left ">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row5Cell3" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+         </div>
+
+
+        {%elseif loop.index==17%}
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left ">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row5Cell4" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+
+        {%elseif loop.index==18%}
+        <div class="col-xl-6 col-lg-8 col-md-12 my-2  gridCell  text-left">
+                {#<!-- Cell(Entry) title from the craft CP -->#}
+            <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                  {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                {%if homepageEntry.contenttitletoggle%}
+                <span id="row6Cell1" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+            {%endif%}
+
+            {%if homepageEntry.contentsubtitletoggle%}
+                <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+            {%endif%}
+
+            {%if homepageEntry.contentdescriptiontoggle%}
+                <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            {%endif%}
+            </span>
+            </a>
+        </div>
+
+
+        {%elseif loop.index==19%}
+             <div class="col-xl-3 col-lg-4 col-md-6  my-2   gridCell  text-left  ">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row6Cell2" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+
+        {%elseif loop.index==20%}
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell  text-left ">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                     {%if homepageEntry.contenttitletoggle%}
+                        <span id="row6Cell3" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                    {%endif%}
+
+                    {%if homepageEntry.contentsubtitletoggle%}
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    {%endif%}
+
+                    {%if homepageEntry.contentdescriptiontoggle%}
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                    {%endif%}
+                    </span>
+                </a>
+            </div>
+
+        {%elseif loop.index==21%}
+        <div class="col-xl-6 col-lg-4 col-md-12 my-2  gridCell  text-left">
+                {#<!-- Cell(Entry) title from the craft CP -->#}
+            <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink bodycontainer">
+
+            <div class="centennialClockEvent">
+                <!-- <div class="centennialText"> -->
+              <div class="centennial-clock-header">
+                {%if homepageEntry.contenttitletoggle%}
+                <h4 class="centennialclocktext1">{{gridCellIconText |upper}}</h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                <p class="centennialclocktext2">{{gridCellIconSubTitle|upper|nl2br|raw }}</p>
+                {%endif%}
+              </div>
+
+
+              <div id="centennialClockDisplay" class="centennial-clock">
+                <div class="centennialClockColumn">
+                  <span id="count-title1">Days</span>
+                  <span id="centennialClockDisplayDays" class="centennial-clock-display"></span>
+                </div>
+                <div class="centennialClockColumn centennial-clock-display">:</div>
+                <div class="centennialClockColumn">
+                  <span id="count-title2">Hours</span>
+                  <span id="centennialClockDisplayHours" class="centennial-clock-display"></span>
+                </div>
+                <div class="centennialClockColumn centennial-clock-display">:</div>
+                <div class="centennialClockColumn">
+                  <span id="count-title3">Minutes</span>
+                  <span id="centennialClockDisplayMins" class="centennial-clock-display"></span>
+                </div>
+              </div>
+
+                <!-- </div> -->
+
+                <p id="saveDateDescription"><u>Click to save the date</u></p>
+            </div>
+            </a>
+            <script>
+            var vadClockValue=new VADClock();
+            vadClockValue.getCountDownClock();
+
+            </script>
+        </div>
+
+
+        {%elseif loop.index==22%}
+            <div class="col-xl-3 col-lg-4 col-md-6  my-2  gridCell  text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row7Cell2" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+
+        {%elseif loop.index==23%}
+            <div class="col-xl-3 col-lg-4 col-md-6  my-2 gridCell  text-left">
+                <a href="{{homepageEntry.url}}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+                          {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                        {%if homepageEntry.contenttitletoggle%}
+                        <span id="row7Cell3" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                    {%endif%}
+
+                    {%if homepageEntry.contentsubtitletoggle%}
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    {%endif%}
+
+                    {%if homepageEntry.contentdescriptiontoggle%}
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                    {%endif%}
+                    </span>
+                </a>
+            </div>
+
+
+        {%elseif loop.index==24%}
+
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left ">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                   {%if homepageEntry.contenttitletoggle%}
+                   <span id="row8Cell1" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+               {%endif%}
+
+               {%if homepageEntry.contentsubtitletoggle%}
+                   <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+               {%endif%}
+
+               {%if homepageEntry.contentdescriptiontoggle%}
+                   <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+               {%endif%}
+               </span>
+                </a>
+            </div>
+
+
+        {%elseif loop.index==25%}
+         <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row8Cell2" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+
+        {%elseif loop.index==26%}
+        <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row8Cell3" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+         </div>
+
+
+        {%elseif loop.index==27%}
+            <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row8Cell4" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+                </a>
+            </div>
+
+
+        {%elseif loop.index==28%}
+        <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row9Cell1" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+            </a>
+        </div>
+
+
+        {%elseif loop.index==29%}
+        <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                          {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                        {%if homepageEntry.contenttitletoggle%}
+                        <span id="row9Cell2" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                    {%endif%}
+
+                    {%if homepageEntry.contentsubtitletoggle%}
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    {%endif%}
+
+                    {%if homepageEntry.contentdescriptiontoggle%}
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                    {%endif%}
+                    </span>
+            </a>
+        </div>
+
+
+        {%elseif loop.index==30%}
+        <div class="col-xl-3 col-lg-4 col-md-6  my-2 gridCell text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row9Cell3" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+            </a>
+        </div>
+
+
+        {%elseif loop.index==31%}
+        <div class="col-xl-3 col-lg-4 col-md-6 my-2  gridCell text-left">
+                <a href="{{homepageEntry.url}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                      {%if gridCellIcon%}
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                {%endif%}
+                    {%if homepageEntry.contenttitletoggle%}
+                    <span id="row9Cell4" class="textOnGridCellImage">
+                    <h4 class="textline1OnGridCellImage font-weight-bold"> {{gridCellIconText}} </h4>
+                {%endif%}
+
+                {%if homepageEntry.contentsubtitletoggle%}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                {%endif%}
+
+                {%if homepageEntry.contentdescriptiontoggle%}
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                {%endif%}
+                </span>
+            </a>
+        </div>
+
+
+
+
+
+{%endif%}
+
+
+
+{% include "_includes/article_body" %}
+
+
+{%endfor%}
+
+</div>
+{%endblock%}

@@ -1,0 +1,110 @@
+{% extends "_layouts/app.html" %}
+{%block head%}
+<!-- STYLESHEETS -->
+<link rel="stylesheet" href="{{siteUrl}}css/bootstrap.css" />
+<!-- <link rel="stylesheet" href="{{siteUrl}}css/global.css" /> -->
+<link rel="stylesheet" href="https://assets.alumniday.ucla.edu/vadstyle/global.css" />
+<link rel="stylesheet" href="{{siteUrl}}css/info.css" />
+
+ <!-- JQuery, Popper, & Bootstrap JAVASCRIPT LIBRARIES -->
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" type="text/javascript"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" type="text/javascript"></script>
+ <script src = "https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+ <script src="{{siteUrl}}js/homepage/KillerAppWorksVADFuncLib.js" type="text/javascript"></script>
+ <script src="{{siteUrl}}js/info/main.js" type="text/javascript"></script>
+{%endblock%}
+
+
+{% set info = craft.entries()
+    .section('infopage')
+    .with(['infofeaturedimage', 'infonavigation', 'infocopysection', 'infoourdepartments', 'infothankyou', 'infosupportsection'])
+    .one() %}
+
+{%block main%}
+
+<main class="main">
+  <div class="second-overlay-popup-background">
+    <section class="section-navigation">
+      <nav class="jump-to-nav">
+        <em class="nav-header">{{ info.infonavheader }}</em>
+        <ul>
+          {% for item in info.infonavigation %}
+          {% if not loop.first %}
+          <li class="nav-separator">
+            |
+          </li>
+          {% endif %}
+          <li>
+            <a href="#{{item.sectionslug}}">{{ item.sectionheader }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="nav-image-container">
+          {% if info.infofeaturedimage %}
+          <img src="{{ info.infofeaturedimage[0].url }}" alt="alt text pending">
+          {% endif %}
+        </div>
+      </nav>
+    </section>
+
+    <div class="main-indent">
+      {% for section in info.infocopysection %}
+      {% set mainloop = loop.index %}
+      <section class="section-infocopy">
+        <div class="section-indent">
+          {% if loop.first %}
+          <h1 class="h2" {% if section.headingslug %}id="{{ section.headingslug }}"{% endif %}>
+            {{ section.headingcopy }}
+          </h1>
+          {% else %}
+          <h2 {% if section.headingslug %}id="{{ section.headingslug }}"{% endif %}>
+            {{ section.headingcopy }}
+          </h2>
+          {% endif %}
+
+          {{ section.sectioncopy }}
+
+          {%if mainloop == 3 %}
+          <div class="section-giveto">
+            <button id="btn-giving" class="btn-outline-primary btn-lg">Give to Support our Work</button>
+          </div>
+          {%endif%}
+        </div>
+      </section>
+      {% endfor %}
+
+      <section class="section-thankyou">
+        <div class="section-indent">
+          <h2 id="{{ info.infothankyouslug }}">{{ info.infothankyouheader }}</h2>
+          <ul>
+          {{ info.infothankyoulist }}
+          </ul>
+        </div>
+      </section>
+
+      <section class="section-support">
+        <h2 id="support">Website Support</h2>
+        <div class="support-button-track">
+          <button id="btn-check-in" name="check-in" value="Sign In" type="button" class="btn btn-strong is-active">
+            Checking Login Status...
+          </button>
+          <!-- <button id="btn-support-chat" name="support-chat" type="button" class="btn btn-lg btn-stateful">
+            Open Support Chat
+          </button> -->
+        </div>
+        <!-- <div class="close-window">
+          <a href="/">Close this Window</a>
+        </div> -->
+      </section>
+    </div>
+
+    <span class="close-popup">
+      <a href="/">
+        <i class="close-button"></i>
+        <span class="sr-only">Return to Homepage</span>
+      </a>
+    </span>
+  </div>
+</main>
+{%endblock%}

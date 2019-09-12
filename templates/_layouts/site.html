@@ -1,0 +1,126 @@
+{#
+    # The site layout template
+ # ------------------------
+ #
+ # This layout template extends the _layouts/base.html layout, and defines the
+ # main site layout: the header,  and main content area.
+ #
+ # It’s never accessed directly. Instead it is extended by all of our main site
+ # templates.
+ #
+ # This template defines one block region, `body`, which should be extended by
+ # child templates to define the main contents for the page.
+#}
+
+{% extends "_layouts/base.html" %}
+{#{% if bodyClass is not defined %}
+    {% set bodyClass = entry is defined ? entry.section.handle : craft.request.firstSegment %}
+    {#{% set title %}{% if title is defined %}{{ title }} - {% endif %}{%endset%}#}
+
+{#{% endif %}#}
+
+{#Define the header#}
+
+{%block header%}
+
+<header id="stickyHeader" class="sticky-top"  >
+
+    {#<!-- banner Information on top of header -->#}
+    <div class="container" id="banner">
+        <div class="row ">
+         <div class="col-sm-10 mt-2 text-center">
+            <span >Alumni Day 2018 has ended.</span>
+            <p class="text-center"> This site will no longer be available after Monday Sept. 17. Feel free to explore.</p>
+        </div>
+       
+        <div class="col-sm-2">
+        <span class="close-popup mr-3 ml-0 pr-4 mt-4">
+            <a class="close-banner">
+              <i class="close-button"></i>
+              <span class="sr-only">Return to Homepage</span>
+            </a>
+        </span>
+        </div>
+    </div>
+      
+    </div> 
+    {%block bannerscript%}
+    <script src="{{siteUrl}}js/banner.js"></script>
+   {%endblock%}
+
+    {#<!-- sticky header information -->#}
+    <div class="row-align">
+        
+    {% for block in entry.headercontent.all()%}
+
+        {%set infoIcon=block.headerinfoimg.one()%}
+        {%set infoTextLine1= block.headerinfotextline1 %}                 {#getting the line1 span text on hover#}
+        {%set infoTextLine2= block.headerinfotextline2 %} 
+  
+        {%if loop.index==1%}
+        
+            <div class=" col-sm  mr-1 ml-0 pl-4 mt-3 text-sm-left" id="header-icon-Div">
+                <a href="{{url('info')}}" id="infoIcon" class="ucla-stickyHeader-Info-Icon-Click" name="infoIcon">
+                    {%if infoIcon%}    
+                        <img  id="InfoIconHomepage" class="ucla-stickyHeader-Info-Imgicon" src="{{infoIcon.getUrl()}}" alt="{{infoIcon.title}}"/>
+                    {%endif%}
+                        <div class="ucla-stickyHeader-icon-slide-text  pl-2 pr-2">
+                            <p class="headerTextLineOne">  <strong>{{infoTextLine1}} </strong>  </p>
+                            <span class="headerTextLineTwo">  {{infoTextLine2}}</span> 
+                        </div>{#<!--Adding text when hovered on each image icon in the Sticky Header-->#}
+                </a>
+            </div>
+
+        {%elseif loop.index==2%} 
+                                                                          {# creating div for the center icon(bear image) button #}
+        <div class=" col-xs ml-0 mr-0 mt-2 text-sm-left ">
+            <a href="{{siteUrl}}" id="bearIcon" name="bearIcon" class="ucla-stickyHeader-Info-BearIcon-Click"  >
+                {%if infoIcon%}
+                    <img id="BearIconHomepage" class="ucla-stickyHeader-Bear-Imgicon" src="{{infoIcon.getUrl()}}" alt="{{infoIcon.title}}"/> {#<!-- Applying Bear Icon Imgae transforms-->#}
+                {%endif%}
+                    <div class="ucla-stickyHeader-icon-slide-text  pr-2">
+                        <p class="headerTextLineOne">  <strong>{{infoTextLine1}} </strong>  </p>
+                        <span class="headerTextLineTwo">  {{infoTextLine2}}</span> 
+                    </div>{#<!--Adding text when hovered on each image icon in the Sticky Header-->#}
+            </a>
+        </div>
+
+        {%else%}                                                                               {#set the info Icon and the check In icon Div#}
+    
+        <div class=" col-sm  mr-1 ml-0 pr-4 mt-3 text-sm-right" id="header-icon-Div1">
+            <a href="https://app.alumniday.ucla.edu" id="infoIcon1" class="ucla-stickyHeader-Checkin-Icon-Click" name="infoIcon" >
+                
+                  <div class="ucla-stickyHeader-icon-slide-text  pr-2">
+                        <p class="homepageCheckinUserName headerTextLineOne font-weight-bold" data-checkintype="{{infoTextLine1}}">  <strong>{{infoTextLine1}} </strong>  </p>
+                        <span class="homepageCheckinSubtitle headerTextLineTwo" data-checkintypeline2="{{infoTextLine2}}">  {{infoTextLine2}}</span> 
+                         
+                  </div>{#<!--Adding text when hovered on each image icon in the Sticky Header-->#}
+                {%if infoIcon%}
+                    <img id="CheckinHomePageIcon" class="ucla-stickyHeader-Checkin-Imgicon" src="{{infoIcon.getUrl()}}" alt="{{infoIcon.title}}"  /> {#<!--Info/CheckIn Icon--> #}
+                {%endif%}
+            </a>
+           
+        </div><!--End of header icons-->
+        
+        {%block script%}
+        <script src="{{siteUrl}}js/login.js" type="text/javascript"></script>
+        {%endblock%}
+
+
+        {%endif%}
+  
+    {%endfor%}
+</div>  
+    </header>
+
+
+{%endblock%}
+
+
+{%block body%} 
+
+
+
+
+{%endblock%}
+

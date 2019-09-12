@@ -1,0 +1,60 @@
+{%block scripts %}
+<!-- JQuery, Popper, & Bootstrap JAVASCRIPT LIBRARIES -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" type="text/javascript"></script>
+<script src="https://www.youtube.com/iframe_api" type="text/javascript"></script>
+<script src="{{siteUrl}}js/moment.min.js" type="text/javascript"></script>
+<script src="{{siteUrl}}js/moment-timer.js" type="text/javascript"></script>
+<script src="{{siteUrl}}js/moment-timezone-with-data.min.js" type="text/javascript"></script>
+<script src="{{siteUrl}}js/qa/schedule.js" type="text/javascript"></script>
+<script src="{{siteUrl}}js/qa/main.js" type="text/javascript"></script>
+{%endblock%}
+
+
+{%block main%}
+<link rel="stylesheet" href="{{siteUrl}}css/qa.css" />
+<main class="main">
+
+  <!-- <div class="start-grid"> -->
+
+  <div class="display-row">
+    <section class="wide-column">
+      <div class="youtube-player">
+        <div id="youtube-player" class="video-player"></div>
+      </div>
+    </section>
+    <section class="small-column">
+      <div id="youtube-chat"class="youtube-chat">
+          Loading Chat...
+      </div>
+    </section>
+  </div>
+
+  <div class="display-row">
+    <section class="live-schedule wide-column">
+      <div class="second-overlay-popup-background">
+        <div class="schedule-header ">
+          <h3 class="h4">Schedule of Speakers</h3>
+          <span class="h2" id="next-speaker-countdown"></span>
+        </div>
+        <ul id="live-schedule"></ul>
+      </div>
+    </section>
+
+    <section class="playlists small-column">
+      <ul id="playlists">
+      {% if entry.qaplaylist|length %}
+        {% for row in entry.qaplaylist %}
+        <li>
+          <a href="{{ row.url }}" >{{ row.copy }} <span class="on-youtube">on YouTube</span></a>
+        </li>
+        {% endfor %}
+      {% endif %}
+      </ul>
+    </section>
+  </div>
+
+  <!-- </div> -->
+</main>
+{%endblock%}

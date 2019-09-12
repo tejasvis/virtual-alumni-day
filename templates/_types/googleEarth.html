@@ -1,0 +1,21 @@
+
+
+{%for block in entry.articleBody.type("linkurl").all()%}
+
+
+<div class="googleEarthImageDiv" >
+    <div class="googleEarththumbnail">
+        <img id="googleearth-image" class="google-earth-image" src="https://assets.alumniday.ucla.edu/plane4worldpopup-V02.jpg" alt="Google Earth Image"/>
+        <div class="googleEarthCountDownTimer">
+            <h3 id="googleearthtitle">The world map will open in a new tab in 3 Seconds</h3>
+            <span id="countdowntimerClock" data-url="{{block.urlembed}}">
+              <span class="timer"></span>
+            </span>
+        </div>
+    </div>
+
+</div>
+{%endfor%}
+{%block scripts%}
+<script src="{{siteUrl}}js/googleearth/main.js" type="text/javascript"></script>
+{%endblock%}

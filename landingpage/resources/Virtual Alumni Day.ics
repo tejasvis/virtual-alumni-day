@@ -1,0 +1,59 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 14.0 MIMEDIR//EN
+VERSION:2.0
+METHOD:PUBLISH
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20180524T214622Z
+DESCRIPTION:Log on to join the excitement of UCLA Alumni Day <http://alumni
+	day.ucla.edu>  a first-of-its-kind\, one-day destination created for all m
+	embers of the Bruin community. Featuring an eclectic mixture of activities
+	 that highlight UCLA then\, now and in the future. This community building
+	 experience celebrates the people and possibility of UCLA. \nFor questions\
+	, email us at alumniday@support.ucla.edu\n\n
+DTEND;VALUE=DATE:20180914
+DTSTAMP:20180412T193655Z
+DTSTART;VALUE=DATE:20180913
+LAST-MODIFIED:20180524T214622Z
+LOCATION:ONLINE
+PRIORITY:5
+SEQUENCE:0
+SUMMARY;LANGUAGE=en-us:Save the Date: UCLA Alumni Day\, Thursday\, Sept. 13
+TRANSP:TRANSPARENT
+UID:040000008200E00074C5B7101A82E00800000000301DA3265AD2D301000000000000000
+	01000000075E6374C49AD6B47B7896A4FC3243823
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
+	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
+	rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
+	rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="en-us"></SPAN><SPAN LANG
+	="en-us"></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri">Log on to join the
+	 excitement of</FONT></SPAN><SPAN LANG="en-us"> </SPAN><A HREF="http://alu
+	mniday.ucla.edu"><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><U></U></SPA
+	N><SPAN LANG="en-us"><U><FONT COLOR="#0000FF" FACE="Calibri">UCLA Alumni D
+	ay</FONT></U></SPAN><SPAN LANG="en-us"></SPAN></A><SPAN LANG="en-us"></SPA
+	N><SPAN LANG="en-us"></SPAN><SPAN LANG="en-us"><FONT FACE="Calibri"></FONT
+	> <FONT FACE="Calibri">a first-of-its-kind\, one-day destination created f
+	or all members of the Bruin community. Featuring an eclectic mixture of ac
+	tivities that highlight UCLA then\, now and in the future this community b
+	uilding exp</FONT><FONT FACE="Calibri">erience celebrates the people and p
+	ossibility of UCLA. </FONT></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="en-us"><F
+	ONT FACE="Calibri">For questions\, email us at</FONT></SPAN><SPAN LANG="en
+	-us"> </SPAN><A HREF="mailto:alumniday@support.ucla.edu"><SPAN LANG
+	="en-us"></SPAN><SPAN LANG="en-us"><U></U></SPAN><SPAN LANG="en-us"><U><FO
+	NT COLOR="#0000FF" FACE="Calibri">alumniday@support.ucla.edu</FONT>
+	</U></SPAN><SPAN LANG="en-us"></SPAN></A><SPAN LANG="en-us"></SPAN><SPAN L
+	ANG="en-us"></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="en-us"></SPAN></P>\n\n</
+	BODY>\n</HTML>
+X-MICROSOFT-CDO-BUSYSTATUS:FREE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-AUTOFILLLOCATION:FALSE
+X-MS-OLK-CONFTYPE:0
+BEGIN:VALARM
+TRIGGER:-PT1080M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR

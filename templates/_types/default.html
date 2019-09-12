@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+
+
+
+{#<!-- ************************* RANDOM IMAGE ****************************-->#}
+
+{%if entry.articleBody|length%}
+
+{%for block in entry.articleBody.all()%}
+
+{% switch block.type %}
+    {%case 'contenttitle'%}
+        {%if block.contenttitletoggle%}
+            <h1 class="cellContentHeading">{{block.contenttitle}}</h1>
+        {%endif%}
+
+    {%case 'contentsubtitle'%}
+        {%if block.contentsubtitletoggle%}
+            <p class="cellContentSubHeading">{{block.contentsubtitle}}</p>
+        {%endif%}
+{%endswitch%}
+    {%endfor%}
+{%endif%}
+
+
+<div id="randomImageDisplay">
+        {%if entry.randomimages|length%}
+        {%set allImages=entry.randomimages.all()%}
+
+
+        <script>
+            var myImagesArray=new Array();
+            var myImagesTextArray=new Array();
+            var myImagesTitleArray=new Array();
+            var myImagesSubtitleArray=new Array();
+            var usedImages = {};
+            var usedImagesCount = 0;
+
+
+        </script>
+        {% set array = [] %}
+
+
+        {%for images in entry.randomimages.all()%}
+            {% switch images.type %}
+                {%case 'randomimage'%}
+                    {%set imagesUrl=images.randomimage.one()%}
+                    <script>
+
+                    /* text = text.replace(/(\r\n|\n|\r)/g,"<br />");
+                    replace({"\n":' ', "\r":' '}) */
+                    myImagesArray.push("{{imagesUrl.url}}");
+                    myImagesTextArray.push("{{images.randomimagedescription|e('js')}}");
+                    myImagesTitleArray.push("{{images.randomimagetitle}}");
+                    myImagesSubtitleArray.push("{{images.randomimagesubtitle}}");
+
+                    </script>
+
+                   {# {% set array = array|merge([{ title: images.randomimagetitle, ... }]) %}#}
+
+                   {#{% set page = {
+                    title: images.randomimagetitle,
+                    subtitle: images.randomimagesubtitle,
+                    url:imagesUrl.url,
+                    description:images.randomimagedescription
+                 }
+                %}#}
+
+
+
+
+            {%endswitch%}
+       {%endfor%}
+
+       {%for randomBlock in entry.randomimages.limit(1).all() %}
+            {% switch randomBlock.type %}
+                {%case 'randomimage'%}
+                  {%set photo=randomBlock.randomimage.one()%}
+                     {#{%set prevo=randomBlock.getPrev()%}
+                     {% set nextEntry = randomBlock.getNext() %}#}
+
+                    <div class="image-row">
+                        <div class="image-container">
+                            <img id="random-image" class="random-cell-image" src="{{photo.url}}" alt="{{photo.title}}"/>
+                        </div>
+                        <div class="description-container">
+                          <h1 id="random-image-title-id" class="random-img-title">{{randomBlock.randomimagetitle}}</h1>
+                          <p id="random-image-subtitle-id" class="random-img-subtitle">{{randomBlock.randomimagesubtitle|upper}}</p>
+                          <hr>
+
+                          <h3 id="random-text" class="random-img-description">{{randomBlock.randomimagedescription}}</h3>
+                          <div class="plantFactBtn">
+                            <button id="show-random-image"  class="btn-outline-primary btn-lg" role="button" onclick="newImage()"  >Show me another plant fact</button>
+                          </div>
+                        </div>
+                    </div>
+
+
+                    <br/><br/>
+            {%endswitch%}
+
+
+        {%endfor%}
+        <script>
+        function newImage(){
+            var mystring="{{entry.randomimages|length}}";
+            var randomNumber=Math.floor(Math.random()*(mystring));
+
+           if (!usedImages[randomNumber]){
+           document.getElementById('random-image').src=myImagesArray[randomNumber];
+           document.getElementById('random-text').innerHTML=myImagesTextArray[randomNumber];
+           document.getElementById('random-image-title-id').innerHTML=myImagesTitleArray[randomNumber];
+           document.getElementById('random-image-subtitle-id').innerHTML=myImagesSubtitleArray[randomNumber];
+           usedImages[randomNumber] = true;
+           usedImagesCount++;
+           if (usedImagesCount === myImagesArray.length){
+               usedImagesCount = 0;
+               usedImages = {};
+                       }//inner if
+               }
+
+           else {
+               newImage();
+            }
+        }
+    </script>
+
+   {%endif%}     
+</div>
+
+{#<!-- ****End Of Random Images Display*** -->#}
+
+
+
+{#<!--- *************************For Single Video Template**************************** -->#}
+
+{%if entry.singlevideo|length%}
+
+    <div class="videoPage ">
+
+
+    {%for block in entry.singlevideo.all() %}
+
+        {%switch block.type%}
+
+            {%case 'singlevideo'%}
+                {%set videoAsset= block.singlevideo.one()%}
+                {% set embed = craft.embeddedAssets.get(videoAsset) %}
+                {%if videoAsset %}
+            <div class="container">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="{{ craft.videoEmbed.getEmbedUrl(embed.url) }}" frameborder="0"  scrolling="no" allowfullscreen >
+                    </iframe>
+
+                </div>
+                {%endif%}
+
+                {%if block.singlevideodescription%}
+                <p class="imagedescription">{{block.singlevideodescription}}</p>
+                {%endif%}
+
+            {%case 'singlevideodisclaimer'%}
+            {%if block.videodisclaimer%}
+             <footer>{{block.videodisclaimer}}</footer>
+             {%endif%}
+            </div>
+        {%endswitch%}
+
+    {%endfor%}
+    </div>
+{%endif%}
+
+
+{#<!-- *****************************URL Embed code ******************************** -->#}
+
+{%if entry.linkurl|length%}
+
+
+<iframe class="quizEmbed" src="{{entry.linkurl}}" frameborder="0" allowfullscreen></iframe>
+
+<script>
+$('.quizEmbed').css('height',$(window).height()+'px');
+</script>
+
+{%endif%}
+
+
+
+
+
+{#<!-- *****************************SOUND CLOUD URL Embed code ******************************** -->#}
+{%if entry.soundcloudembed|length%}
+    <div class="soundcloud-player">
+      <!-- player controls -->
+      <div id="custom-player" class="player-controls">
+        <button id="previousBtn" class="previous-track"><span class="sr-only">Previous</span></button>
+        <button id="playBtn" class="play-toggle"><span class="sr-only">Play</span></button>
+        <button id="nextBtn" class="next-track"><span class="sr-only">Next</span></button>
+      </div>
+
+      <!-- soundcloud embed -->
+      <div class="embed-container">
+        <iframe id="soundcloud-player" width="100%" height="100%" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/555481185&color=%23ff5500&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&show_artwork=false&auto_play=true"></iframe>
+      </div>
+
+      <div class="external-link">
+        <a class="btn btn-outline-primary btn-lg" id="new-window-link" href="https://soundcloud.com/ucla-alumni/sets/bruin-jukebox" rel="nofollow">Open in a new window</a>
+      </div>
+
+    </div>
+{%block scripts%}
+  <script src="{{siteUrl}}js/soundcloud/player.js" type="text/javascript"></script>
+{%endblock%}
+{%endif%}
+
+{#<!-- ******************* Sound Cloud implementaion functionality ******************* -->#}
+
+{#<!--*******************Image/Video Carousel Content************************************* -->#}
+
+
+{% if entry.imagecarouselcontent|length %}
+{%include ["_types/imageCarousel"]%}
+
+ {%endif%}
+
+
+
+{#<!--  ********************** VIDEO Carousel Fields**************************** -->#}
+{%if entry.videocarouselcontent|length%}
+
+{%include ["_types/videocarousel"]%}
+
+{%endif%}
+
+{#<!-- UCLA Impact Story display --->#}
+
+{%if entry.impactsstoriescreated|length%}
+
+    <div class="row-align randomImageContainer container">
+
+        {# Loop through all of the impacts entries in their Structure-defined order #}
+
+
+        {%for impactsStoryEntry in entry.impactsstoriescreated.all()%}
+        <div class="col-sm-12 col-xs-12 col-md-12 col-lg-6 ">
+            {% for block in impactsStoryEntry.articleBody.all()%}
+
+                {%switch block.type%}
+                {%case 'featuredcellimage'%}
+                    {%set image= block.featuredcellimage.one() %}
+                    {%set imgTitle=block.imagetitle%}
+
+                <div class="impact-thumb col-sm-12">
+                    <a href="{{impactsStoryEntry.url}}" class="impact-selectstory" >
+                        <img id="impact-story-image" class="impact-storyhome-image" src="{{image.url}}" alt="{{image.title}}"/>
+
+                        <h2>{{imgTitle}}</h2>
+                        <p>{{block.imagedescription}}</p>
+                        <span>Read More</span>
+                    </a>
+                </div>
+
+                {%endswitch%}
+
+            {%endfor%}
+
+        </div>
+        {%endfor%}
+
+    </div>
+
+{%if entry.articleBody.type('contentdisclaimer')|length%}
+<hr/>
+    {%for block in entry.articleBody.type('contentdisclaimer').all()%}
+
+      <p> {{block.disclaimer}} </p>
+
+    {%endfor%}
+
+{%endif%}
+
+{%endif%}{#<!-- End of display all impacts stories-->#}
+
+
+
+
+{#<!-- **********UCLA Career Tips************ -->#}
+
+{%if not entry.countdownclock %}
+
+
+
+
+
+{%if entry.careertiparticlefieldbody|length%}
+<div class="careerTipsView second-overlay-popup-background">
+
+    <section class="career-points">
+
+    {%for block in entry.careertiparticlefieldbody.all()%}
+
+        <div class="row careerInfo">
+            <div class="col-sm-12 text-center careerInfoGif" >
+                <iframe name="carrerTopGif" id="carrerTopGif" src="{{block.imagegif}}"  frameborder="0" class="giphy-embed">
+                </iframe>
+            </div>
+            <div class="col-sm-12 alignleft">
+                {{block.caption}}
+            </div>
+        </div>
+    {%endfor%}
+    </section>
+{%endif%}
+
+    {%if entry.articleBody.type('featuredcellimage')|length%}
+
+    <div class="careerTipsLoop">
+    {%for block in entry.articleBody.type('featuredcellimage').all() %}
+
+        {%set careerTipsImages=block.featuredcellimage.one()%} {# Get career tips images array#}
+        {%set careerTipsImagesTitle=block.imagetitle%} {# Get Career tips title#}
+
+        {%set careerTipsImagesDescription=block.imagedescription%} {#Get Career tips Images Description#}
+
+        <div class="row">
+            <div  class="col-sm-12 text-center">
+                <span class="careerStoryCount"></span>
+            </div>
+
+
+            <div class="col-sm-12 careerStoryThumb">
+             
+                <div class="row">
+                    {%if careerTipsImages%}
+                    <div class="col-sm-12">
+                        <div class="careerTipImage">
+                            <img id="career-story-image" class="career-tip-image" src="{{careerTipsImages.url}}" alt="{{careerTipsImages.title}}"/><br/>
+                        </div>
+                     </div>
+                    {%else%}
+                        {%set giphyUrl=block.gifurl%}
+                    <div class="giphyDiv">
+                        <div class="giphyImage ">
+                            <iframe src="{{giphyUrl}}"  frameborder="0" scrolling="false" >
+                            </iframe>
+                        </div>
+                        {%endif%}
+                    </div>
+                    <div class="col-sm -12">
+                        <h2>{{careerTipsImagesTitle}}</h2>
+                        <p class="careertipDescription">{{careerTipsImagesDescription}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    {%endfor%}
+    </div>
+
+
+    <hr/>
+    {%for block in entry.articleBody.type('contentdescription').all() %}
+
+    <p class="closingCareerTip">{{block.contentdescription}}</p>
+
+    {%endfor%}
+
+
+</div>
+
+
+
+    {%for block in entry.articleBody.type('contentdisclaimer').all() %}
+
+    <p class="disclaimer">{{block.disclaimer}}</p>
+
+    {%endfor%}
+
+
+    {%endif%}
+
+
+
+{%endif%}
+{#<!-- **********END Of UCLA Career Tips************ -->#}
+
+
+
+
+
+{#<!-- **************** Centennial Countdown Clock  ****************** -->#}
+{%if entry.countdownclock%}
+
+
+    {%if entry.articleBody|length%}
+
+    {%include ["countdown"] %}
+
+    {%endif%} {#<!--END OF Article Body-->#}
+
+    <script>
+        var vadCentennial=new vadCountDownClock();
+        vadCentennial.getCentennialClock();
+    </script>
+
+{%endif%}{#<!--END OF Countdown Clock toggle-->#}
+
+{#<!-- ************** END OF  Centennial Countdown Clock  **************** -->#}
+
+
+
+
+{#<!-- Google Earth EMbed-->#}
+
+{%if entry.articleBody.type("linkurl")|length%}
+
+{% include ["_types/googleEarth"] %}
+
+{%endif%}
+
+
+{#<!-- Live Q&A -->#}
+
+{%if entry.qaurl|length%}
+
+{% include ["qa"] %}
+
+{%endif%}
+
+
+{%if entry.tagboardembed|length%}
+
+
+<div class="tagboard-embed" tgb-embed-id="2036"></div><script src="{{entry.tagboardembed}}" ></script>
+
+
+<script src="{{siteUrl}}js/tagboard/tagBoard.js" type="text/javascript"></script>
+ 
+
+
+
+{%endif%}
+
+{%if entry.slug == 'cell29' %}
+{%block head%}
+<!-- STYLESHEETS -->
+<link rel="stylesheet" href="{{siteUrl}}/css/bootstrap.css" />
+<link rel="stylesheet" href="{{siteUrl}}/css/homePage.css" />
+<link rel="stylesheet" href="{{siteUrl}}/css/info.css" />
+<link rel="stylesheet" href="https://assets.alumniday.ucla.edu/vadstyle/global.css" />
+
+
+ <!-- JQuery, Popper, & Bootstrap JAVASCRIPT LIBRARIES -->
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript"></script>
+ <script src="{{siteUrl}}/js/app.js" type="text/javascript"></script>
+{%endblock%}
+
+<div class="sale-container">
+  <section class="section-infocopy asucla-appreciation">
+    <div class="section-image">
+      <h2>ASUCLA Alumni Appreciation Discount</h2>
+      <p class="number">
+        20% off
+      </p>
+      <h4>All UCLA Apparel & Accessories<br />Online Sept. 13 Only</h4>
+      <div class="visit-store">
+        <a href="https://shop.uclastore.com/c-312-apparel-accessories.aspx" class="btn btn-outline-primary btn-lg">Visit the UCLA Store</a>
+      </div>
+    </div>
+  </section>
+</div>
+{%endif%}

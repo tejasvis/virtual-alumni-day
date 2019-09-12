@@ -1,0 +1,156 @@
+{#
+    # homepage entry template
+    # -------------------
+    #
+    # This template gets loaded whenever a homepage entry’s URL is requested, because
+    # the homepage section’s Template setting is set to "_entry".
+    #
+    # An `entry` variable will be automatically passed to this template, which will
+    # be set to the requested News entry.
+   -
+#}
+
+{% extends "_layouts/app.html" %}
+
+   {% set title = entry.title %}
+ 
+{# Define the header #}
+
+   {%block header%}
+
+   {% set params = {
+    section: 'homepage',
+    orderBy: 'postdate'
+} %}
+
+
+{% set prevEntry = entry.getPrev(params) %}
+{% set nextEntry = entry.getNext(params) %}
+
+{%set lastEntry=craft.entries.section('homepage').orderBy('postdate asc').inReverse().one()%} {# get last entry/cell title in the homepage #}
+
+
+{%set firstEntry=craft.entries.section('homepage').orderBy('postdate asc').one()%} {# get first entry/cell title in the homepage #}
+
+
+
+
+{#
+{% if prevEntry %}
+    <a href="{{ prevEntry.url }}" >Previous: {{prevEntry.title}}</a>
+{% endif %}
+{% if nextEntry %}
+    <a href="{{ nextEntry.url }}" >Next: {{nextEntry.title}}</a>
+{% endif %} #}
+
+
+<div class="cellContentHeader">
+   <header id="stickyHeaderContent" class="sticky-top">
+      
+      
+    
+        {#<!-- sticky header information -->#}
+
+
+    <div class="row-align">
+       {% for block in entry.headercontent.all()%}
+           {%set infoIcon=block.headerinfoimg.one()%}
+           {%set infoTextLine1= block.headerinfotextline1 %}                 {#getting the line1 span text on hover#}
+           {%set infoTextLine2= block.headerinfotextline2 %} 
+           {%if loop.index==1%}
+           
+               <div class=" col-sm  mr-1 ml-0 pl-4 mt-3 text-sm-left" id="header-icon-Div">
+                    
+                   {% if prevEntry %}                    
+                    <a href="{{ prevEntry.url }}" id="PreviousIcon" class="ucla-stickyHeader-Next-Previous-Icon-Click" name="infoIcon" >
+                        {%if infoIcon%}   
+                        <img id="PreviousActivityIcon" class="ucla-stickyHeader-Previous-Next-Imgicon" src="{{infoIcon.getUrl()}}" alt="{{infoIcon.title}}" /> {#<!--Info/CheckIn Icon--> #}
+                        {%endif%}
+                            <div class="ucla-stickyHeader-icon-slide-text   pl-2 pr-2">
+                                <p class="headerTextLineOne text-sm-left">  <strong>{{infoTextLine1}} </strong>  </p>
+                                <span class="headerTextLineTwo text-sm-left">  {{prevEntry.title}} </span> 
+                            </div>{#<!--Adding text when hovered on each image icon in the Sticky Header-->#}
+                    </a>
+                    
+                    {%elseif lastEntry%} {#To add last entry in the first entry cell content for an infinite looping#}
+
+                    <a href="{{ lastEntry.url }}" id="PreviousIcon" class="ucla-stickyHeader-Next-Previous-Icon-Click" name="infoIcon" >
+                            {%if infoIcon%}   
+                        <img id="PreviousActivityIcon" class="ucla-stickyHeader-Previous-Next-Imgicon" src="{{infoIcon.getUrl()}}" alt="{{infoIcon.title}}" /> {#<!--Info/CheckIn Icon--> #}
+                            {%endif%}
+                            <div class="ucla-stickyHeader-icon-slide-text  pl-2 pr-2">
+                                <p class="headerTextLineOne text-sm-left">  <strong>{{infoTextLine1}} </strong>  </p>
+                                <span class="headerTextLineTwo text-sm-left">  {{lastEntry.title}} </span> 
+                            </div>{#<!--Adding text when hovered on each image icon in the Sticky Header-->#}
+                    </a>
+
+                   
+
+                   {% endif %}
+               </div>
+               
+           {%elseif loop.index==2%}                                                                   {# creating div for the center icon(bear image) button #}
+
+           <div class=" col-xs ml-0 mr-0 mt-2 text-sm-left ">
+                <a href="{{siteUrl}}" id="CellContentBearIcon" name="CellContentBearIcon" class="ucla-stickyHeader-Info-BearIcon-Click"  >
+                 {%if infoIcon%}
+                 <img id="BeariconContent" class="ucla-stickyHeader-Bear-Imgicon" src="{{infoIcon.getUrl()}}" alt="{{infoIcon.title}}" />
+                 {%endif%}                
+                        <div class="ucla-stickyHeader-icon-slide-text  pr-2">
+                            <p class="headerTextLineOne text-center">  <strong>{{infoTextLine1}} </strong>  </p>
+                            <span class="headerTextLineTwo text-center">{{infoTextLine2}}</span>
+                        </div>{#<!--Adding text when hovered on each image icon in the Sticky Header-->#}
+                </a>
+            </div>
+           
+       {%else%}                                                                               {#set the info Icon and the check In icon Div#}
+             
+           <div class=" col-sm  mr-1 ml-0 pr-4  mt-3 text-sm-right" id="header-icon-Div1">
+                {% if nextEntry %}
+                <a href="{{ nextEntry.url }}" id="NextIcon" class="ucla-stickyHeader-Next-Previous-Icon-Click" name="infoIcon" >
+                    <div class="ucla-stickyHeader-icon-slide-text pr-2">
+                        <p class="headerTextLineOne  text-sm-right">  <strong>{{infoTextLine1}} </strong>  </p>
+                        <span class="headerTextLineTwo  text-sm-right"> {{nextEntry.title}}</span>
+                              
+                    </div>{#<!--Adding text when hovered on each image icon in the Sticky Header-->#}
+                    {%if infoIcon%}
+                    <img id="NextActivityIcon" class="ucla-stickyHeader-Previous-Next-Imgicon" src="{{infoIcon.getUrl()}}" alt="{{infoIcon.title}}"  /> {#<!--Info/CheckIn Icon--> #}
+                    {%endif%}
+                </a>
+
+                {%elseif firstEntry%} {#To add first entry in the last entry cell content for an infinite looping#}
+
+                <a href="{{ firstEntry.url }}" id="NextIcon" class="ucla-stickyHeader-Next-Previous-Icon-Click " name="infoIcon" >
+                   {%if infoIcon%}   
+                    
+                   {%endif%}
+                       <div class="ucla-stickyHeader-icon-slide-text  pl-2 pr-2">
+                            <p class="headerTextLineOne text-sm-right">  <strong>{{infoTextLine1}} </strong>  </p>
+                            <span class="headerTextLineTwo text-sm-right">   {{firstEntry.title}} </span>
+                        </div>{#<!--Adding text when hovered on each image icon in the Sticky Header-->#}
+                       <img id="NextActivityIcon" class="ucla-stickyHeader-Previous-Next-Imgicon" src="{{infoIcon.getUrl()}}" alt="{{infoIcon.title}}" /> {#<!--Info/CheckIn Icon--> #}
+                  </a>
+
+               {% endif %}
+           </div><!--End of header icons-->
+           
+       {%endif%}
+   
+       {%endfor%}
+    </div>
+   </header>
+</div>  
+   
+   {%endblock%}
+   
+
+  {#<!-- Body of the selected content block -->#}
+{%block main%} 
+  
+
+    {#{% include "_types/" ~ entry.type %}#}
+ 
+    {% include ["_types/" ~ entry.type, "_types/default"] %}
+
+{%endblock%}
+

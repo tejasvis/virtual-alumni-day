@@ -1,0 +1,164 @@
+/* overrides */
+.container-fluid {
+  padding:0 !important;
+  margin:0 !important;
+}
+
+/* actual stuff */
+.main {
+  padding-bottom:4rem;
+}
+.display-row {
+  display:flex;
+  justify-content:center;
+  margin-bottom:4rem;
+}
+.display-row:last-child {
+  margin-bottom:0;
+}
+.wide-column {
+  width:50vw;
+  padding:0 2.08vw;
+}
+.small-column {
+  width:29.17vw;
+  padding:0 2.08vw;
+}
+
+
+.youtube-player {
+  position:relative;
+  height:0;
+  padding-bottom:56.25%;
+}
+.video-player {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+}
+
+
+.youtube-chat {
+  height:100%;
+}
+.youtube-chat iframe {
+  border:none;
+}
+
+
+.live-schedule ul, .live-schedule li {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+.live-schedule ul {
+  position:relative;
+  overflow-y:scroll;
+  padding:0 2rem;
+  height:18rem;
+}
+.live-schedule .second-overlay-popup-background {
+  width:100%;
+  padding:1rem 0;
+}
+.live-schedule .schedule-header {
+  border-bottom:1px solid #8BB8E8;
+}
+.live-schedule .schedule-header h3 {
+  color:#FFD100;
+  margin:0;
+}
+.live-schedule .schedule-header .h2 {
+  display:block;
+  text-align:center;
+  margin-top:0;
+}
+.live-schedule .next-speaker-intro {
+  font-weight:300;
+}
+.live-schedule li.schedule-listing {
+  margin:1rem 0 2rem;
+}
+.schedule-listing h2, .schedule-listing h3, .schedule-listing h4, .schedule-listing p {
+  text-align:left;
+  padding:0;
+  margin:0.5rem 0;
+}
+.schedule-listing h2 {
+  margin:0;
+}
+.schedule-listing h3 {
+  margin:0.2rem 0;
+}
+.schedule-listing .speaker-title {
+  font-style: italic;
+  margin-top:-0.2rem;
+  margin-bottom:0;
+}
+.schedule-listing .online-status {
+  font-weight:300;
+  color:#FFD100;
+}
+.schedule-listing.has-ended {
+  color:#8BB8E8;
+}
+
+
+.playlists ul, .playlists li {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+.playlists li {
+  margin:0 0 2rem;
+}
+.playlists a {
+  display:block;
+  text-decoration:none;
+  text-align:center;
+  line-height:1.5;
+  padding:1rem;
+  border:2px solid #ffffff;
+  border-radius:4px;
+}
+.playlists a:hover {
+  border-color:#FFD100;
+}
+.playlists a:hover .on-youtube {
+  color:#FFD100;
+}
+.playlists .on-youtube {
+  display:block;
+  color:#C3D7EE;
+}
+
+@media screen and (max-width:1279px) {
+  .wide-column {
+    width:58.33vw;
+  }
+  .small-column {
+    width:29.17vw;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .display-row {
+    display:block;
+  }
+  .wide-column {
+    width:100vw;
+    padding:0 1rem;
+  }
+  .small-column {
+    width:100vw;
+    padding:0 1rem;
+  }
+  .youtube-chat {
+    height:25rem;
+  }
+  .playlists li {
+    margin:2rem 0;
+  }
+}

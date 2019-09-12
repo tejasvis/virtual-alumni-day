@@ -1,0 +1,448 @@
+/* these are no longer candidates. see info.css for better options */
+/* global needs to be updated */
+body {
+  min-width:0 !important;
+  height:auto !important;
+}
+.main
+{
+    margin:0 auto;
+    width: 83.33vw;
+    text-align: center;
+}
+/* not great but whatev */
+.main h1, .main h2, .main h3, .main h4 {
+  width:100%;
+}
+.main h2.h1 {
+  padding-top:2rem;
+}
+.main > main {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:100vh;
+  margin:0 auto;
+}
+/* not proud of this */
+.main > main > div {
+  position:relative;
+}
+
+/* the overlay's background */
+.main-popup {
+  margin:3rem auto;
+  position:relative;
+  width:83.33vw;
+  max-width:1660px;
+}
+.main-popup:after {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  background: #3C82BA;
+  background: -webkit-linear-gradient(45deg, #8BB8E8 0%, #3C82BA 100%);
+  background: linear-gradient(45deg, #8BB8E8 0%,#3C82BA 100%);
+  border-radius:5px;
+  opacity:0.36;
+  z-index:1;
+}
+.main-popup:before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  opacity: 0.82;
+  background: #004680;
+  background: -webkit-linear-gradient(top, #4484BA 0%, #004680 100%);
+  background: linear-gradient(to bottom, #4484BA 0%,#004680 100%);
+  z-index:2;
+}
+.main-popup-inner {
+  position:relative;
+  z-index:1100;
+  width:58.33vw;
+  margin:0 auto;
+}
+@media screen and (max-width:767px) {
+  .main > main {
+    min-height:0;
+  }
+  .main-popup {
+    margin:0;
+    width:100vw;
+  }
+  .main-popup-inner {
+    width:83.33vw;
+  }
+}
+/* required popup css overrides */
+.mfp-container {
+  padding:0;
+}
+
+/* not sure if this is a global behavior */
+a[href*="mailto:"] {
+  font-weight:bold;
+}
+
+
+/* header stuff */
+.main-graphic {
+  background-size:contain;
+  background-position:top center;
+  background-repeat:no-repeat;
+  background-image:url("../resources/images/VAD19Logo-horizontal@2x.png");
+
+  position:relative;
+  width:34.4375rem;
+  min-width:34.4375rem;
+  height:18.3125rem;
+  margin:0 auto;
+}
+.main-graphic .sr-only {
+  margin:0;
+}
+/* mobile graphic */
+@media screen and (max-width:767px) {
+  .main-graphic {
+    background-image:url("../resources/images/VADLogo-stacked@2x.png");
+    width:100%;
+    min-width:0;
+    height:0;
+    padding-bottom:85.12%;
+    margin-top:3rem;
+  }
+}
+/* mobile */
+/* retina - css tricks to the rescue
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    .main-graphic {
+      background-image:url("../resources/images/VADLogo-horizontal-2x.png");
+    }
+}
+
+@media
+(-webkit-min-device-pixel-ratio: 2) and (max-width:767px),
+(min-resolution: 192dpi) and (max-width:767px) {
+    .main-graphic {
+      background-image:url("../resources/images/VADLogo-stacked-2x.png");
+    }
+}
+*/
+
+
+/* solution came from: https://stackoverflow.com/a/42144320 */
+.video-container
+{
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+.video-container > video {
+  display:block;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-aspect-ratio: 1280/500) {
+  .video-container > video {
+    width: 100%;
+  }
+}
+
+@media screen and (max-aspect-ratio: 1280/500) {
+  .video-container > video {
+    height: 100%;
+  }
+}
+
+
+
+/* overlay animate in
+.mfp-fade.mfp-bg.mfp-ready
+{
+    opacity: 0.82;
+    background: #004680;
+    background: -webkit-linear-gradient(top, #4484BA 0%, #004680 100%);
+    background: linear-gradient(to bottom, #4484BA 0%,#004680 100%);
+}
+*/
+
+#GRADIENT_FILTER_IMG
+{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index:0;
+}
+
+.CONTAINER
+{
+    height: 100%;
+}
+
+.FOOTER_CONTENT
+{
+    color: white;
+}
+
+.CALENDAR_BUTTON, .VAD_BUTTON {
+  position:relative;
+  z-index:1000;
+}
+
+.CALENDAR_BUTTON
+{
+    width: 21rem;
+    color: #004680;
+    background-color: rgba(255, 255, 255, 0.77);
+    border: 2px solid #FFD100;
+    /* border-radius: 0.7rem; */
+}
+
+.CALENDAR_BUTTON:hover, .CALENDAR_BUTTON:focus
+{
+    transition: background-color 1.25s;
+    -webkit-transition: background-color 1.25s;
+    -moz-transition: background-color 1.25s;
+    background-color: rgba(255, 184, 28, 1);
+    border-color: #FFD100;
+    color: #004680;
+    outline:none;
+    box-shadow:0 0 0 0.2rem rgba(255,184,28,0.5) !important;
+}
+
+.VAD_BUTTON
+{
+    width: 21rem;
+    color: white;
+    border: 2px solid #8BB8E8;
+}
+
+.VAD_BUTTON:hover, .VAD_BUTTON:focus
+{
+    transition: background-color 1.25s;
+    -webkit-transition: background-color 1.25s;
+    -moz-transition: background-color 1.25s;
+    border-color: #8BB8E8;
+    background-color: #004680;
+    color: white;
+    outline:none;
+    box-shadow:#8BB8E8;
+    box-shadow:0 0 0 0.2rem rgba(139, 184, 232, 0.5) !important;
+}
+
+.LIGHTBOX_TITLE {
+  text-align:center;
+  margin:2rem 0 1rem;
+}
+
+.LIGHTBOX_BODY
+{
+  text-align: left;
+}
+
+.LIGHTBOX_BODY p {
+  text-align: left;
+  padding:0;
+}
+
+.main-popup .add-to-calendar {
+  margin-bottom:2rem;
+}
+
+.LIGHTBOX_EMAIL > a
+{
+    color: #C3D7EE;
+    text-decoration: underline;
+}
+
+.LIGHTBOX_EMAIL > a:hover
+{
+    color: #FFD100;
+}
+
+.LIGHTBOX_CLOSE_LINK
+{
+    font-weight: bold;
+    color: #C3D7EE;
+    opacity: 1;
+    margin:2rem 0;
+    text-align:center;
+    text-decoration:underline;
+}
+
+.LIGHTBOX_CLOSE_LINK:hover
+{
+    color: #FFD100;
+    opacity: 1;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* footer */
+.footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100vw;
+  z-index:1;
+}
+.footer-container {
+  width:91.667vw;
+  margin:0 auto 2.25rem;
+}
+@media screen and (max-width:767px) {
+  .footer {
+    position:relative;
+    width:100%;
+  }
+  .footer-container {
+    width:100%;
+  }
+}
+
+.icon-alumni {
+  display:block;
+  position:relative;
+  height:2.3125rem;
+  width:9.8125rem;
+  background-size:auto 100%;
+  background-position:top left;
+  background-repeat:no-repeat;
+  background-image:url("../resources/images/AlumniWhite-04.svg");
+}
+.icon-alumni:hover {
+  background-image:url("../resources/images/AlumniBlue-04.svg");
+}
+
+.share-links-intro {
+  margin-top:0;
+  margin-right:1rem;
+}
+
+.email-share {
+  display:block;
+  position:relative;
+  height:2.3125rem;
+  width:2.3125rem;
+  margin-right:1rem;
+
+  background-size:contain;
+  background-position:top left;
+  background-repeat:no-repeat;
+  background-image:url("../resources/images/EmailWhite-04.svg");
+}
+.email-share:hover, .email-share:focus {
+  background-image:url("../resources/images/EmailBlue-04.svg");
+}
+
+.facebook-share {
+  display:block;
+  position:relative;
+  height:2.3125rem;
+  width:2.3125rem;
+  margin-right:1rem;
+
+  background-size:contain;
+  background-position:top left;
+  background-repeat:no-repeat;
+  background-image:url("../resources/images/FacebookWhite-04.svg");
+}
+.facebook-share:hover, .facebook-share:focus {
+  background-image:url("../resources/images/FacebookBlue-04.svg");
+}
+
+.twitter-share {
+  display:block;
+  position:relative;
+  height:2.3125rem;
+  width:2.3125rem;
+
+  background-size:contain;
+  background-position:top left;
+  background-repeat:no-repeat;
+  background-image:url("../resources/images/TwitterWhite-04.svg");
+}
+.twitter-share:hover, .twitter-share:focus {
+  background-image:url("../resources/images/TwitterBlue-04.svg");
+}
+
+/*********** LIGHTBOX PROPERTIES  ***********/
+
+.mfp-wrap ~ *
+{
+    /* Background video blurring */
+    filter: blur(36px);
+}
+
+.mfp-bg
+{
+    /* Background video darkening */
+    opacity: 0.35;
+}
+
+/* start state */
+.mfp-with-anim
+{
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transform: scale(0.8);
+}
+
+/*-----------------------------------------------*/
+
+/* overlay at start */
+.mfp-fade.mfp-bg
+{
+    opacity: 0;
+    -webkit-transition: all 3s ease-out;
+    -moz-transition: all 3s ease-out;
+    transition: all 3s ease-out;
+}
+
+
+
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing
+{
+    opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content
+{
+    opacity: 0;
+    -webkit-transition: all 1.5s ease-out;
+    -moz-transition: all 1.5s ease-out;
+    transition: all 1.7s ease-out;
+}
+
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content
+{
+    opacity: 1;
+}
+
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content
+{
+    opacity: 0;
+}

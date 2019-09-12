@@ -1,0 +1,120 @@
+{#
+    # impacts entry template
+    # -------------------
+    #
+    # This template gets loaded whenever a impacts entry’s URL is requested, because
+    # the impacts structure section’s Template setting is set to "_entry".
+    #
+    # An `entry` variable will be automatically passed to this template, which will
+    # be set to the requested News entry.
+   -
+#}
+
+{% extends "_layouts/app.html" %}
+
+{% set params = {
+    section: 'impacts',
+    orderBy: 'postdate'
+} %}
+
+
+{% set prevEntry = entry.getPrev(params) %}
+{% set nextEntry = entry.getNext(params) %}
+
+
+{%block main%}
+
+<div class="cellContentHeader">
+  <header id="stickyHeaderContent" class="sticky-top">
+    <div class="row-align ">
+    <div class=" col-sm  mr-1 ml-0 pl-4 mt-3 text-sm-left" id="header-icon-Div">
+      <a href="{{siteUrl}}cell27" id="PreviousIcon" class="ucla-stickyHeader-Next-Previous-Icon-Click" name="infoIcon">
+        <img id="PreviousActivityIcon" class="ucla-stickyHeader-Previous-Next-Imgicon" src="https://assets.alumniday.ucla.edu/homepage/stickyHeader/PreviousWhite.svg?mtime=20180814091248" alt="Previouswhite">
+        <div class="ucla-stickyHeader-icon-slide-text pl-2 pr-2">
+            <p class="headerTextLineOne text-sm-left">  <strong>Previous Activity </strong>  </p>
+            <span class="headerTextLineTwo text-sm-left"> Find an Affinity Network</span> 
+         
+        </div>
+      </a>
+    </div>
+
+    <div class=" col-xs ml-0 mr-0 mt-2 text-sm-left ">
+      <a href="{{siteUrl}}" id="CellContentBearIcon" name="CellContentBearIcon" class="ucla-stickyHeader-Info-BearIcon-Click">
+        <img id="BeariconContent" class="ucla-stickyHeader-Bear-Imgicon" src="https://assets.alumniday.ucla.edu/homepage/stickyHeader/WhiteBear_popup.png?mtime=20180814091250" alt="Whitebear Popup">
+        <div class="ucla-stickyHeader-icon-slide-text pr-2">
+            <p class="headerTextLineOne text-center">  <strong>Welcome to Alumni Day</strong>  </p>
+            <span class="headerTextLineTwo text-center"> Click here to go back to home</span> 
+        </div>
+      </a>
+    </div>
+
+    <div class=" col-sm  mr-1 ml-0 pr-4  mt-3 text-sm-right" id="header-icon-Div1">
+      <a href="{{siteUrl}}cell29" id="NextIcon" class="ucla-stickyHeader-Next-Previous-Icon-Click" name="infoIcon">
+        <div class="ucla-stickyHeader-icon-slide-text pr-2">
+            <p class="headerTextLineOne text-sm-right">  <strong>Next Activity</strong>  </p>
+            <span class="headerTextLineTwo text-sm-right"> A Souvenir of Your Day</span> 
+        </div>
+        <img id="NextActivityIcon" class="ucla-stickyHeader-Previous-Next-Imgicon" src="https://assets.alumniday.ucla.edu/homepage/stickyHeader/NextWhite.svg?mtime=20180814091246" alt="Nextwhite">
+      </a>
+    </div><!--End of header icons-->
+  </div>
+  </header>
+</div>
+
+   {% set title = entry.title %}
+   <div class="container descriptionpage">
+   <h1>{{title}}</h1>
+   <div class=" contentsubtitle">
+   {% for block in entry.articleBody.type('contentsubtitle').all()%}
+
+        {{block.contentsubtitle}}
+
+   {%endfor%}
+   </div>
+    <div class="">
+   {%for impactsStories in entry.impactprogramreadstory.all()%}
+
+     {%switch impactsStories.type%}
+        {%case 'impactstory'%}
+            {%set impactImage=impactsStories.impactimage.one()%}
+            <div class="row">
+            <div class="col-md-4 storyImage1">
+                <img id="impact-read-story-image" class="impact-read-fullStory-image" src="{{impactImage.url}}" alt="{{impactImage.title}}"/>
+            </div>
+         <div class="col-md-8">
+            <h1 class="imagetitle">{{impactsStories.impactimagetitleline1}}</h1>
+            <h3>{{impactsStories.impactimagetitleline2|upper}}</h3>
+            <h3>{{impactsStories.impactimagetitleline3|upper}}</h3>
+            <hr class="impactLine"/>
+            <h4 class="quote">{{impactsStories.impactimagequote}}</h4>
+            <div class="storyImageMob">  <img id="impact-read-story-image" class="impact-read-fullStory-image" src="{{impactImage.url}}" alt="{{impactImage.title}}"/></div>
+            <hr class="impactLine"/>
+            <p class="imageDescription">{{impactsStories.impactimagedescription}}</p>
+
+        </div> 
+        </div> 
+     
+
+        <hr class="descLine"/>
+     {%endswitch%}
+
+
+
+   {%endfor%}
+</div>
+
+
+<div class="footerWrapper">
+    <p>
+   {% for block in entry.articleBody.type('contentdisclaimer').all()%}
+
+    {{block.disclaimer}}
+
+    {%endfor%}
+    </p>
+<div class="btnWrapper">
+   <a href="{{siteUrl}}cell28"  class="btn-outline-primary btn-lg" >Go to Impacts Story Home </a>
+</div>
+</div>
+</div>
+   {%endblock%}

@@ -1,0 +1,39 @@
+body
+{
+    background-color: slategrey;
+}
+
+.jumbotron, .container, .container-fluid
+{
+    background-color: white;
+    color: #2699fb;
+    height: 775px;
+    width: 450px;
+}
+
+.VERTICAL_CTR
+{
+    margin-top: 25%;
+}
+
+.LARGE_TEXT
+{
+    color: #2699FB;
+    font-size: 38px;
+}
+
+.SMALL_TEXTER
+{
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.CHAT_BOX
+{
+    /*background-color: #2699FB;*/
+    border:none;
+    /*text-align: left;*/
+    width:425px;
+    height:500px;
+
+}

@@ -1,0 +1,413 @@
+{#
+    # Homepage template
+    # -----------------
+    #
+    # This template gets loaded whenever the site's homepage is requested, because
+    # the "Homepage" single-entry section's Template setting is set to "index".
+    #
+    # An `entry` variable will be automatically passed to this template, which will
+    # be set to the Homepage entry.
+   -#}
+{% extends "_layouts/site.html" %}
+
+{%block main%}
+<div class="row-align">
+{%for block in entry.homepagecellcontent.all()%}
+
+    {%set gridCellIcon=block.gridcellimage.one()%}
+    {%set gridCellIconText=block.gridcelltitle%}
+    {%set gridCellIconSubTitle=block.gridcellsubtitle%}
+    {%set gridCellIconDescription=block.gridcelldescription%}
+
+ <!--representing first cell of row1-->
+    {%if loop.index==1%}              
+    <div class="col-xl-6 col-lg-12 col-md-12 border border-white gridCell  text-left font-weight-bold">
+        <!-- Cell(Entry) title from the craft CP -->
+        <a href="{{ url('singlevideo/videopage')}}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row1Cell2" class="textOnGridCellImage">{{gridCellIconText}}(Greeting)   
+            <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+            <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+        </span>
+        </a>
+    </div>
+
+    <!--Cell2-->
+    {%elseif loop.index==2%}
+    <div class="col-xl-3 col-lg-4  col-md-6  border border-white gridCell  order-xl-first text-left  ">
+        <a href="" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+               {# <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+                <span id="row1Cell1" class="textOnGridCellImage">{{gridCellIconText}} 
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span>  
+
+
+        </a>
+    </div>
+
+    <!--Cell3-->
+    {%elseif loop.index==3%}
+    <div class="col-xl-3 col-lg-4 col-md-6 border border-white gridCell  text-left">
+        <a href="{{url('quizembed/quizembedone') }}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row1Cell3" class="textOnGridCellImage">{{gridCellIconText}}(How Bruin Are you) 
+                <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>  
+        </a>
+    </div>
+
+    <!--Cell4-->
+    {%elseif loop.index==4%}
+    <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center">
+        <a href="{{url('singlevideo/videopage.1')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row2Cell1" class="textOnGridCellImage">{{gridCellIconText}}(Mo Austin BasketBallcenter)
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>  
+        </a>
+    </div>
+
+    <!--Cell5-->
+    {%elseif loop.index==5%}
+    <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center"> 
+        <a href="#" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            {#<img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+            <span id="row2Cell2" class="textOnGridCellImage">{{gridCellIconText}}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>  
+        </a>
+    </div>
+
+    <!--Cell6-->
+
+    {%elseif loop.index==6%}
+    <div class="col-xl-3 col-lg-4 col-md-6  border  border-white gridCell text-center ">
+        <a href="{{url('singlevideo/videopage.2')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row2Cell3" class="textOnGridCellImage">{{gridCellIconText}}(ThankYou Video)
+                 <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                 <p class="gridCellDescription">{{gridCellIconDescription}}</p>       
+         </span>  
+        </a>
+    </div>
+
+    <!--Cell7-->
+    {%elseif loop.index==7%}
+    <div class="col-xl-3 col-lg-4 col-md-6 border border-white gridCell text-center ">
+        <a href="{{url('singlevideo/videopage.3')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row2Cell4" class="textOnGridCellImage">{{gridCellIconText}}(filmed At UCLA) 
+                 <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                 <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>  
+        </a>
+    </div>
+    {%elseif loop.index==8%}
+    <div class="col-xl-6 col-lg-8 col-md-12  border border-white gridCell  text-center">
+        <!-- Cell(Entry) title from the craft CP -->
+        <a href="{{url('singlevideo/videopage.4')}}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row3Cell1" class="textOnGridCellImage">{{gridCellIconText}}(RoMeLa) 
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span> 
+        </a>
+    </div>
+
+    {%elseif loop.index==9%}
+
+    <div class="col-xl-3 col-lg-4 col-md-6    border border-white gridCell  text-center ">
+        <a href="{{url('soundcloud.html')}}" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row3Cell2" class="textOnGridCellImage">{{gridCellIconText}}(SoundCloud)
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>
+        </a>
+    </div>
+
+    {%elseif loop.index==10%}
+
+    <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell  text-center">
+        <a href="#" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+            {#<img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+            <span id="row3Cell3" class="textOnGridCellImage">{{gridCellIconText}}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>
+        </a>
+    </div>
+
+    {%elseif loop.index==11%}
+
+        <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center ">
+            <a href="{{url('ImageCarousel')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                <span id="row4Cell1" class="textOnGridCellImage">{{gridCellIconText}} Image Carousel  
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span>
+            </a>
+        </div> 
+
+    {%elseif loop.index==12%}
+    <div class="col-xl-3 col-lg-4 col-md-6 border border-white gridCell text-center ">
+        <a href="{{url('VideoCarousel')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row4Cell2" class="textOnGridCellImage">{{gridCellIconText}}VIDEO carousel 
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>
+        </a>
+    </div>
+    
+    {%elseif loop.index==13%}
+    <div class="col-xl-6 col-lg-8 col-md-12  border border-white gridCell  text-center">
+        <a href="{{url('yearbook/yearbookone')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row4Cell3" class="textOnGridCellImage">{{gridCellIconText}}(Yearbook Application) 
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>
+        </a>
+    </div>
+
+    {%elseif loop.index==14%}
+    <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center ">
+        <a href="#" alt="videoTags" target="_parent" class="redirectAnchorLink">
+           {# <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+            <span id="row5Cell1" class="textOnGridCellImage">{{gridCellIconText}}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>  
+        </a>
+    </div>
+
+    {%elseif loop.index==15%}
+
+    <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell">
+        <a href="{{url('yearbook/yearbooktwo')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row5Cell2" class="textOnGridCellImage">{{gridCellIconText}}(Veterans Thank You Wall) 
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>  
+        </a>
+    </div>
+
+    {%elseif loop.index==16%}
+    <div class="col-xl-3 col-lg-4 col-md-6 border  border-white gridCell text-center ">
+        <a href="#" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            {#<img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+            <span id="row5Cell3" class="textOnGridCellImage">{{gridCellIconText}} 
+                 <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+             <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>  
+        </a>
+    </div>
+
+    {%elseif loop.index==17%}
+    <div class="col-xl-3 col-lg-4 col-md-6 border  border-white gridCell text-center ">
+        <a href="{{url('quizembed/quizembedtwo')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row5Cell4" class="textOnGridCellImage">{{gridCellIconText}}(Which UCLA Building Are you) 
+                 <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                 <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span>  
+        </a>
+    </div>
+
+    {%elseif loop.index==18%}
+    <div class="col-xl-6 col-lg-8 col-md-12  border border-white gridCell  text-center">
+        <!-- Cell(Entry) title from the craft CP -->
+        <a href="#" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            {#<img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+            <span id="row6Cell1" class="textOnGridCellImage">{{gridCellIconText}}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+            </span> 
+        </a>
+    </div>
+
+    {%elseif loop.index==19%}
+    <div class="col-xl-3 col-lg-4 col-md-6    border border-white gridCell  text-center  ">
+            <a href="#" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                {#<img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+                <span id="row6Cell2" class="textOnGridCellImage">{{gridCellIconText}} 
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span> 
+            </a>
+    </div>
+
+    {%elseif loop.index==20%}
+    <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell  text-center ">
+        <a href="{{url('singlevideo/videopage.5')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+            <span id="row6Cell3" class="textOnGridCellImage">{{gridCellIconText}}(Organ Room) </span> 
+        </a>
+    </div>
+
+    {%elseif loop.index==21%}
+        <div class="col-xl-6 col-lg-4 col-md-12  border border-white gridCell  text-center">
+            <!-- Cell(Entry) title from the craft CP -->
+            <a href="#" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                {#<img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+                <span id="row7Cell1" class="textOnGridCellImage">{{gridCellIconText}}
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span> 
+            </a>
+        </div>
+
+    {%elseif loop.index==22%}
+        <div class="col-xl-3 col-lg-4 col-md-6    border border-white gridCell  text-center">
+            <a href="{{url('singlevideo/videopage.6')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                <span id="row7Cell2" class="textOnGridCellImage">{{gridCellIconText}}(ASUCLA)
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span> 
+            </a>
+        </div>
+
+    {%elseif loop.index==23%}
+        <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell  text-center">
+            <a href="#" alt="Cell1AnchorTags" target="_parent" class="redirectAnchorLink">
+                    {#<img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+                <span id="row7Cell3" class="textOnGridCellImage">{{gridCellIconText}}
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span> 
+            </a>
+        </div>
+        
+    {%elseif loop.index==24%}
+
+        <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center ">
+            <a href="#" alt="videoTags" target="_parent" class="redirectAnchorLink">
+            {# <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+                <span id="row8Cell1" class="textOnGridCellImage">{{gridCellIconText}} 
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span>  
+            </a>
+        </div>
+
+    {%elseif loop.index==25%}
+        <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center">
+            <a href="{{url('singlevideo/videopage.7')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                <span id="row8Cell2" class="textOnGridCellImage">{{gridCellIconText}}(Company Video)
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>    
+                </span>  
+            </a>
+        </div>
+
+    {%elseif loop.index==26%}
+        <div class="col-xl-3 col-lg-4 col-md-6 border  border-white gridCell text-center">
+                <a href="{{url('singlevideo/videopage.8')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                    <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                    <span id="row8Cell3" class="textOnGridCellImage">{{gridCellIconText}}(network Greeting Video)
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                    </span>  
+                </a>
+        </div>
+
+    {%elseif loop.index==27%}
+        <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center">
+            <a href="{{url('quizembed/quizembedthree')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                <span id="row8Cell4" class="textOnGridCellImage">{{gridCellIconText}}(Find your Network FlowCart)
+                     <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                     <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span>  
+            </a>
+        </div>
+
+    {%elseif loop.index==28%}
+        <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center">
+                <a href="#" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                    {#<img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+                <span id="row9Cell1" class="textOnGridCellImage">{{gridCellIconText}} 
+                        <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                        <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span>
+            </a>
+        </div>
+
+    {%elseif loop.index==29%}
+        <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center">
+                <a href="#" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                        {#<img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />#}
+                <span id="row9Cell2" class="textOnGridCellImage">{{gridCellIconText}}
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>    
+                </span>
+            </a>
+        </div>
+
+    {%elseif loop.index==30%}
+        <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center">
+                <a href="{{url('yearbook/yearbookthree')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                    <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                <span id="row9Cell3" class="textOnGridCellImage">{{gridCellIconText}}(find local Events)
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>
+                </span>
+            </a>
+        </div>
+
+    {%elseif loop.index==31%}
+        <div class="col-xl-3 col-lg-4 col-md-6  border border-white gridCell text-center">
+                <a href="{{url('quizembed/quizembedfour')}}" alt="videoTags" target="_parent" class="redirectAnchorLink">
+                    <img class="homePageGridImgResponsive" src="{{gridCellIcon.getUrl()}}" alt="{{gridCellIcon.title}}" />
+                <span id="row9Cell4" class="textOnGridCellImage">{{gridCellIconText}}(Free Answer/Feedback)
+                    <h6 class="gridCellSubTitle">{{gridCellIconSubTitle}}</h6>
+                    <p class="gridCellDescription">{{gridCellIconDescription}}</p>    
+                </span>
+            </a>
+        </div>
+
+
+
+    {%endif%}{#END OF GRID LOOP INDEXES#}
+{%endfor%}{#End of grid entries#}
+</div>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#{% extends "_layouts/base.html" %}
+ {% block header %}
+  {{include('homePageHeader.html')}} 
+{% endblock %} 
+{%block grid%}
+
+    {%include 'homepageGrid.html'%} 
+{% endblock %}
+#}

@@ -1,0 +1,152 @@
+
+body
+{
+    background-color: rgb(0, 70, 128);
+    font-family: Helvetica Neue, Arial, sans-serif;
+    height: 100vh;
+}
+
+.jumbotron, .container, .container-fluid
+{
+    background-color: rgba(26, 101, 159, 1.0);
+    color: white;
+}
+
+/* for Bootstrap form's text-fields */
+.form-control
+{
+    color: white;
+    border-color: #C3D7EE;
+    background-color: #1A659F;
+}
+
+.INPUT_FIELD
+{
+    height: 34px;
+    font-size: 14px;
+}
+
+.INPUT_FIELD:focus
+{
+    border-color: #FFD100;
+}
+
+.HEADER_TEXT
+{
+    font-size: 30px;
+    line-height: 1em;
+}
+
+.CAPTION_TEXT
+{
+    font-size: 18px;
+    line-height: 1.2;
+    color: white;
+}
+
+.HELP_LINK
+{
+    font-size: 18px;
+    line-height: 1.2;
+    color: #C3D7EE;
+}
+
+.EXPLANATORY_TEXT
+{
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.WHITE_COLORED
+{
+    color: white;
+}
+
+.LIGHT_BLUE_LRG_TEXT
+{
+    color: #C3D7EE;
+}
+
+.LIGHT_BLUE_TEXT
+{
+    color: #C3D7EE;
+}
+
+.LINK
+{
+    color: white;
+}
+
+.GUEST_LINK
+{
+    color: white;
+}
+
+.GUEST_LINK:hover
+{
+    color: #FFD100;
+}
+
+.LINK:hover
+{
+    color: white;
+}
+
+.UNDERLINE_ON_HOVER:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.LOGIN_BTN
+{
+    width: 208px;
+    font-size: 16px;
+    color: #2774AE;
+    font-weight: bold;
+}
+
+
+
+/* Empty INPUT FIELDS' text color */
+::-webkit-input-placeholder
+{
+    color: white !important;
+}
+
+::-moz-placeholder
+{
+    color: white !important;
+}
+
+/*::-ms-placeholder*/
+/*{*/
+    /*color: white !important;*/
+/*}*/
+
+::placeholder
+{
+    color: white !important;
+}
+
+/*
+    Tooltip Theme...
+ */
+.tippy-tooltip.UCLA-theme
+{
+    background-color: white;
+    color: #2774AE;
+    font-weight: lighter;
+    font-size: 16px;
+    text-align: left;
+}
+
+/*
+    Tooltip arrow color...
+ */
+.tippy-popper[x-placement^=right] .tippy-tooltip.UCLA-theme .tippy-arrow
+{
+    border-right: 8px solid white;
+}
+
+

@@ -1,0 +1,290 @@
+/* for sale page */
+.sale-container {
+  position:relative;
+  display:flex;
+
+  flex-direction:column;
+  justify-content:center;
+  width:75%;
+  height:100vh;
+  margin:0 auto;
+  max-width:2000px;
+}
+/* everything else */
+.container-fluid {
+  padding:0;
+}
+.main
+{
+  position:relative;
+  z-index:1000;
+  padding:3rem 0 4rem;
+}
+@media screen and (max-width:767px) {
+  .main {
+    padding:0;
+  }
+}
+/* affix children at a higher z-index to avoid background overlap */
+.main > * {
+  position:relative;
+  z-index:1001;
+}
+.main .second-overlay-popup-background {
+  margin:0 auto;
+}
+.main-indent {
+  width:58.33vw;
+  margin:0 auto;
+  padding-bottom:3rem;
+}
+@media screen and (max-width:1279px) {
+  .main-indent {
+    width:75vw;
+  }
+}
+@media screen and (max-width:767px) {
+  .main-indent {
+    width:100%;
+  }
+  .section-indent {
+    width:83.33%;
+    margin:0 auto;
+  }
+}
+/* close button */
+.close-popup {
+  position:absolute;
+  top:3.8rem;
+  left:100%;
+  margin-left:1rem;
+}
+.close-popup a {
+  display:block;
+  height:1.5rem;
+  width:1.5rem;
+  outline:none;
+}
+.close-popup .close-button {
+  display:block;
+  width:100%;
+  height:100%;
+  background:url('../images/CloseRemove-White.svg') 100% 100% no-repeat;
+}
+
+.close-popup a:hover .close-button, .close-popup a:focus .close-button {
+  background-image:url('../images/CloseRemove-Gold.svg');
+}
+@media screen and (max-width:1279px) {
+  .close-popup {
+    margin-left:0.5rem;
+  }
+}
+@media screen and (max-width:767px) {
+  .close-popup {
+    left:auto;
+    right:0;
+    top:0;
+    margin:0.5rem 0.5rem 0 0;
+  }
+}
+
+/* nav */
+.section-navigation {
+  margin-bottom:2rem;
+  padding:1rem 0 3rem;
+}
+/* header image alignment */
+.nav-image-container {
+  position:relative;
+  overflow:hidden;
+  width:100%;
+  padding-bottom:27.7%;
+  margin-top:2rem;
+}
+@media screen and (max-width:767px) {
+  .nav-image-container {
+    border-radius:0;
+    padding-bottom:59.733%;
+  }
+}
+/* nav setup */
+.jump-to-nav ul {
+  width:75vw;
+  margin:0 auto;
+}
+.jump-to-nav img {
+  position:absolute;
+  top:0;
+  margin-top:-31.2%;
+  width:100%;
+  height:auto;
+}
+@media screen and (max-width:1279px) {
+  .jump-to-nav ul {
+    width:83.33vw;
+  }
+}
+@media screen and (max-width:767px) {
+  .jump-to-nav ul {
+    width:100vw;
+  }
+  .jump-to-nav img {
+    margin-top:-15.5%;
+  }
+}
+.jump-to-nav .nav-header {
+  display:block;
+  text-align:center;
+  font-style:normal;
+  font-size:0.875rem;
+  margin-bottom:1rem;
+}
+.jump-to-nav ul {
+  width:100%;
+  display:inline-flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+}
+.jump-to-nav ul, .jump-to-nav li {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+.jump-to-nav ul {
+  padding:0 2.08vw;
+}
+.jump-to-nav li {
+  display:inline-block;
+  margin:0 0.5rem;
+  font-size:1.375rem;
+  font-weight:400;
+  white-space:nowrap;
+}
+
+/* info copy sections */
+.section-infocopy:after, .sale-container .section-infocopy:before {
+  display:block;
+  content:'';
+  clear:both;
+  width:100%;
+  height:1px;
+  background:#8BB8E8;
+  margin:2rem 0;
+}
+.section-infocopy h1, .section-infocopy h2, .section-infocopy h3 {
+  padding:0;
+}
+.section-infocopy p {
+  text-align:left;
+  padding:0;
+  margin:1rem 0;
+}
+.section-infocopy strong {
+  font-size:1.167rem;
+}
+/* images within copy sections */
+.section-infocopy figure {
+  position:relative;
+  overflow:hidden;
+  float:right;
+  margin-left:2rem;
+  width:36%;
+  /* 182 / 930 */
+  padding-bottom:11rem;
+}
+.section-infocopy img {
+  display:block;
+  position:absolute;
+  top:-25%;
+  left:0;
+  width:100%;
+  min-height:11rem;
+}
+/* special discount graphic */
+.asucla-appreciation .number, .asucla-appreciation .visit-store {
+  text-align:center;
+}
+.asucla-appreciation .number {
+  line-height:0.9;
+}
+.section-infocopy .btn-outline-primary {
+  min-width:17rem;
+}
+.asucla-appreciation .number, .asucla-appreciation h4 {
+  color:#FFD100;
+}
+.asucla-appreciation .section-image {
+  position:relative;
+  overflow:hidden;
+  border-radius:5px;
+  background-color:#1d5a99;
+  background-image:url('../images/info/infopopup-discount-V02.jpg');
+  background-position:center center;
+  background-size:100% auto;
+  background-repeat:no-repeat;
+  padding:1rem 0 2rem;
+}
+@media screen and (max-width:1279px) {
+  .section-infocopy strong {
+    font-size:1.125rem;
+  }
+}
+@media screen and (max-width:767px) {
+  .section-infocopy figure {
+    position:relative;
+    overflow:hidden;
+    float:none;
+    margin:0;
+    width:100vw;
+    padding-bottom:44.267%;
+    /* margin-left:calc(-16.67% / 2); */
+    margin-left:-10%;
+    margin-bottom:2rem;
+  }
+  .section-infocopy figure img {
+    position:absolute;
+    top:0;
+    margin-top:-18%;
+    width:100%;
+    height:auto;
+  }
+  .section-infocopy strong {
+    font-size:1.071rem;
+  }
+}
+
+/* giving link */
+.section-giveto {
+  text-align:center;
+  padding-top:0.8rem;
+}
+
+
+/* thank you section */
+.section-thankyou ul, .section-thankyou li {
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  display:block;
+}
+.section-thankyou li {
+  margin:2rem 0;
+}
+.section-thankyou strong {
+  font-weight:500;
+}
+
+/* support */
+.support-button-track {
+  display:flex;
+  justify-content:center;
+  margin:1.5rem 0 0;
+}
+.support-button-track > button {
+  margin:0 1rem;
+}
+.section-support .close-window {
+  text-align:center;
+}

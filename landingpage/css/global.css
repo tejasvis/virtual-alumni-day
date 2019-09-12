@@ -1,0 +1,339 @@
+/* base font and color declarations */
+body, .p
+{
+    /* background-color: #8BB8E8; */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:18px;
+    color:#fff;
+    height: 100vh;
+    min-width:400px;
+    /* margin-bottom:4rem; */
+}
+/* basic typography */
+/* normalize class resets fonts to match basic site copy */
+body, h1.normalize, h2.normalize, h3.normalize, h4.normalize {
+  font-size:1.125rem;
+  line-height:1.7;
+  font-weight:300;
+  letter-spacing:1px;
+}
+@media screen and (max-width:1279px) {
+  body, h1.normalize, h2.normalize, h3.normalize, h4.normalize {
+    font-size:1rem;
+  }
+}
+@media screen and (max-width:767px) {
+  body {
+    font-size:.875rem;
+  }
+}
+
+p {
+  margin-bottom: 4rem;
+  margin-top:1rem;
+  text-align: center;
+  font-size:1.125rem;
+  padding: 0 10%;
+}
+
+/* headers */
+h1, .h1 {
+  font-size:2.75rem;
+  font-weight:500;
+  line-height:1.25;
+  margin:1rem 0;
+  margin-top:4rem;
+  text-align: center;
+}
+
+h2, .h2 {
+  font-size:1.5rem;
+  font-weight:700;
+  line-height:1.4;
+  margin:1rem 0;
+  text-align: center;
+}
+
+h3, .h3 {
+  font-size:1.5rem;
+  font-weight:200;
+  line-height:1.4;
+  margin:1rem 0;
+  text-align: center;
+}
+
+h4, .h4 {
+  font-size:1.3125rem;
+  font-weight:400;
+  letter-spacing:1px;
+  line-height:1.5;
+  margin:1rem 0;
+  text-align: center;
+}
+
+.note{
+  font-size: .778rem;
+  line-height: 1.5;
+  font-weight:500;
+}
+
+.quote{
+  font-size: 1.889rem;
+  line-height: 1.7;
+  font-weight:100;
+  font-style: italic;
+}
+.number{
+  font-weight: 500;
+  font-size: 4rem;
+}
+
+@media screen and (max-width:1279px) {
+  h1, .h1 {
+    font-size:2.3125rem;
+  }
+
+  h2, .h2 {
+    font-size:1.375rem;
+  }
+
+  h3, .h3 {
+    font-size:1.3125rem;
+  }
+
+  h4, .h4 {
+    font-size:1.125rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+  .note{
+    font-size: .8125rem;
+  }
+  .quote{
+    font-size: 1.8125rem;
+  }
+  .number{
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width:767px) {
+  h1, .h1 {
+    font-size:1.875rem;
+  }
+
+  h2, .h2 {
+    font-size:1.5rem;
+  }
+
+  h3, .h3 {
+    font-size:1.125rem;
+  }
+
+  h4, .h4 {
+    font-size:0.9375rem;
+  }
+  p {
+    font-size: .875rem;
+  }
+  .note{
+    font-size: .857rem;
+  }
+  .quote{
+    font-size: 1.714rem;
+  }
+  .number{
+    font-size: 4rem;
+  }
+}
+/* links and buttons */
+a {
+  color:inherit;
+  text-decoration:underline;
+}
+a:hover {
+  color:#FFD100;
+}
+a:active {
+  color:#C3D7EE;
+}
+a.btn {
+  text-decoration:none;
+}
+
+/* "stateful" button for ajax operations */
+.btn-stateful.btn-lg {
+  background-color:transparent;
+  color:#8BB8E8;
+  border:2px solid #8BB8E8;
+  cursor:pointer;
+
+  font-size:1.375rem;
+  font-weight:400;
+  letter-spacing:1px;
+  line-height:1.5;
+}
+.btn-stateful.btn-lg:hover, .btn.btn-stateful.btn-lg:focus {
+  background-color:#FFFFFF;
+  color:#2774AE;
+  border-color:#FFD100;
+}
+.btn.btn-stateful.btn-lg:focus {
+  box-shadow:0 0 0 0.2rem rgba(255, 209, 0, 0.25);
+}
+.btn-stateful.btn-lg:active {
+  color:#2774AE;
+  background-color:#FFFFFF;
+  border-color:#FFFFFF;
+}
+.btn-stateful.btn-lg[disabled] {
+  color:#2774AE;
+  background-color:#C3D7EE;
+  border-color:#C3D7EE;
+}
+@media screen and (max-width:1279px) {
+  .btn-stateful.btn-lg {
+    border:1.5px solid #8BB8E8;
+    font-size:1.1875rem;
+  }
+}
+@media screen and (max-width:767px) {
+  .btn-stateful.btn-lg {
+    border:1px solid #8BB8E8;
+    font-size:1rem;
+  }
+}
+/* override outline primary bootstrap style */
+/* basic outline CTA */
+.btn-outline-primary.btn-lg {
+  background-color:transparent;
+  color:#FFFFFF;
+  border:2px solid #FFFFFF;
+  cursor:pointer;
+
+  font-size:1.375rem;
+  font-weight:400;
+  letter-spacing:1px;
+  line-height:1.5;
+}
+.btn-outline-primary.btn-lg:hover, .btn-outline-primary.btn-lg:focus {
+  background-color:transparent;
+  color:#FFD100;
+  border-color:#FFD100;
+}
+.btn-outline-primary.btn-lg:focus {
+  box-shadow:0 0 0 0.2rem rgba(255, 209, 0, 0.25);
+  background-color:transparent;
+}
+.btn-outline-primary.btn-lg:active{
+  border-color: #fff!important;
+  background-color:transparent!important;
+}
+@media screen and (max-width:1279px) {
+  .btn-outline-primary.btn-lg {
+    border:1.5px solid #FFFFFF;
+    font-size:1.1875rem;
+  }
+}
+@media screen and (max-width:767px) {
+  .btn-outline-primary.btn-lg {
+    border:1px solid #FFFFFF;
+    font-size:1rem;
+  }
+}
+/* lists */
+ul, ol {
+  list-style-position: inside;
+  padding-left:4.16vw;
+  margin-bottom:2rem;
+}
+
+/* the first overlay */
+.first-overlay-popup-background {
+  background: rgba(68,133,186,0.82);
+  background: -moz-linear-gradient(top, rgba(68,133,186,0.82) 0%, rgba(0,70,128,0.82) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(68,133,186,0.82)), color-stop(100%, rgba(0,70,128,0.82)));
+  background: -webkit-linear-gradient(top, rgba(68,133,186,0.82) 0%, rgba(0,70,128,0.82) 100%);
+  background: -o-linear-gradient(top, rgba(68,133,186,0.82) 0%, rgba(0,70,128,0.82) 100%);
+  background: -ms-linear-gradient(top, rgba(68,133,186,0.82) 0%, rgba(0,70,128,0.82) 100%);
+  background: linear-gradient(to bottom, rgba(68,133,186,0.82) 0%, rgba(0,70,128,0.82) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4485ba', endColorstr='#004680', GradientType=0 );
+  position: absolute;
+  width: 100%!important;
+}
+
+/* the second overlay */
+.second-overlay-popup-background {
+  background: rgba(139,184,232,0.36);
+  background: -moz-linear-gradient(45deg, rgba(139,184,232,0.36) 0%, rgba(60,129,186,0.36) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(139,184,232,0.36)), color-stop(100%, rgba(60,129,186,0.36)));
+  background: -webkit-linear-gradient(45deg, rgba(139,184,232,0.36) 0%, rgba(60,129,186,0.36) 100%);
+  background: -o-linear-gradient(45deg, rgba(139,184,232,0.36) 0%, rgba(60,129,186,0.36) 100%);
+  background: -ms-linear-gradient(45deg, rgba(139,184,232,0.36) 0%, rgba(60,129,186,0.36) 100%);
+  background: linear-gradient(45deg, rgba(139,184,232,0.36) 0%, rgba(60,129,186,0.36) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8bb8e8', endColorstr='#3c81ba', GradientType=1 );
+}
+
+.second-overlay-popup-background {
+  width:83.33vw;
+}
+
+@media screen and (max-width:1279px) {
+.second-overlay-popup-background{
+    width:91.66vw;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .second-overlay-popup-background{
+    width:100vw;
+  }
+}
+
+/*Background Images*/
+
+.homePageBackgroungBlurImage {
+  background: url("https://assets.alumniday.ucla.edu/vadstyle/HomepageScreenshot-4across-V02.jpg")  no-repeat;  
+  background-size: cover;
+  position: relative;
+  background-color: #8BB8E8;
+ 
+}
+
+@media only screen and (max-width: 2000px) and (min-width: 1200px)  {
+  .homePageBackgroungBlurImage {   
+    background: url("https://assets.alumniday.ucla.edu/vadstyle/HomepageScreenshot-4across-V02.jpg")  no-repeat;  
+    background-size: cover;
+    position: relative;
+    background-color: #8BB8E8;
+  }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 993px)  {
+  .homePageBackgroungBlurImage {   
+    background: url("https://assets.alumniday.ucla.edu/vadstyle/HomepageScreenshot-3across-V01.jpg")  no-repeat;
+    background-size: cover;
+    position: relative;
+    background-color: #8BB8E8;
+  }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 768px)  {
+  .homePageBackgroungBlurImage {   
+    background: url("https://assets.alumniday.ucla.edu/vadstyle/HomepageScreenshot-2across-V01.jpg")  no-repeat;
+    background-size: cover;
+    position: relative;
+    background-color: #8BB8E8;
+  }
+}
+
+@media screen and (max-width:767px) {
+  .homePageBackgroungBlurImage {   
+    background: url("https://assets.alumniday.ucla.edu/vadstyle/HomepageScreenshot-1across-V01.jpg")  no-repeat;
+    background-size: cover;
+    position: relative;
+    background-color: #8BB8E8;
+  }
+}

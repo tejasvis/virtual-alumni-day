@@ -1,0 +1,37 @@
+<div class="container">
+<div class="slick">
+        {% for block in entry.videocarouselcontent.all()%}
+    
+    
+        {%switch block.type%}
+                {%case "video"%}
+        
+            <div class="item youtube">                
+                {%set videoAsset= block.videocarousel.one()%}
+                {%if videoAsset%}
+                    {% set embed = craft.embeddedAssets.get(videoAsset) %}
+                    
+                <iframe id="youtube" class=" "  src="{{craft.videoEmbed.getEmbedUrl(embed.url) }}?rel=0&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe> <!-- Make sure to enable the API by appending the "&enablejsapi=1" parameter onto the URL. -->
+                
+                <p class=" imagedescription">{{block.videoDescription}}</p>
+                                    
+                {%endif%} {#<!-- END OF LOOP INDEX If Block -->#}            
+            </div>
+        {%endswitch%}
+    
+        {%endfor%}
+</div>
+{%for videoCarouselViewFields in entry.videocarouselcontent.type('disclaimer').all() %}
+    
+<footer>{{videoCarouselViewFields.videocarouseldisclaimer}}</footer>
+
+{%endfor%}
+
+{%block scripts%}    
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	
+<script src="{{siteUrl}}js/carousel/video.js" type="text/javascript"></script>
+{%endblock%}
+
+
+</div><!-- /.container -->

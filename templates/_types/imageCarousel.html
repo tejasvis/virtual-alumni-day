@@ -1,0 +1,56 @@
+<div class="wrapper">
+        <div class="versioned_second-overlay-popup-background">
+        <div class="slick-codepen">
+                {% for block in entry.imagecarouselcontent.all()%}
+                     <div>
+                {% switch block.type %}
+                    {% case 'image' %}              
+                        
+                    {%set image=block.imagecarousel.one()%}
+               {% if image %}
+                   <img src="{{image.url}}" alt="{{image.title}}"/>
+                {%endif%} {#<!-- END OF LOOP INDEX If Block -->#}
+                  
+                   <br/>
+                   {%if block.imagedescriptiontoggle%}
+                   <h2 class="imagedescription">{{block.imagedescription|nl2br|raw}}</h2>
+                   {%endif%}
+        
+                   {%if block.imagedescriptionsubheadingtoggle%}
+                   <p class="imagedescriptionSubHeading">{{block.imagedescriptionsubheading}}</p>
+                   {%endif%}
+               
+                  
+                {%endswitch%}
+                {%if entry.slug == "cell16" %}
+   
+                <div class="downloadMultipleBtn text-center">
+                    <a id="download-image"  class="btn-outline-primary btn-lg" href="{{image.url}}"  download > Download</a>
+                </div>
+                {%endif%}
+            </div>
+            
+                {%endfor%}
+  
+        </div>
+        </div>
+      
+      </div>
+
+{%if entry.slug == "cell5" %}
+   
+<div class="downloadBtn text-center">
+     <a id="download-image"  class="btn-outline-primary btn-lg" href="https://assets.alumniday.ucla.edu/images/otherimages/The-Adventures-of-Bruin-Bear-Full-PDF.pdf"  download   >Download</a>
+</div>
+ {%endif%}
+   
+{%for imageCarouselViewFields in entry.imagecarouselcontent.type('disclaimer').all()%}
+<footer>{{imageCarouselViewFields.imagecarouseldisclaimer}}</footer>
+{%endfor%}
+
+
+      {%block scripts%}    
+      <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+          
+      <script src="{{siteUrl}}js/carousel/carousel.js" type="text/javascript"></script>
+      {%endblock%}

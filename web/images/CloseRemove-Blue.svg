@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.086 14.086">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #c3d7ee;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Remove_button" data-name="Remove button" transform="translate(-1275.973 -1849.322)">
+    <g id="Ellipse_111" data-name="Ellipse 111" class="cls-1" transform="translate(1275.973 1849.322)">
+      <circle class="cls-3" cx="7.043" cy="7.043" r="7.043"/>
+      <circle class="cls-4" cx="7.043" cy="7.043" r="6.543"/>
+    </g>
+    <g id="Group_138" data-name="Group 138" transform="translate(1280.973 1854.322)">
+      <line id="Line_7" data-name="Line 7" class="cls-2" x1="3.814" y1="3.814" transform="translate(0 0)"/>
+      <line id="Line_8" data-name="Line 8" class="cls-2" x1="3.814" y2="3.814" transform="translate(0.112 0.112)"/>
+    </g>
+  </g>
+</svg>
